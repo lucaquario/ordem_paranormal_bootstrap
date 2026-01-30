@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+        <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+            <title>Ordem Paranormal - Morte</title>
+            <style>
+                /* CURSOR DE CAVEIRINHA */
+              
+                body, a, button {
+                    cursor: url('https://img.icons8.com/ios-glyphs/30/ffffff/skull.png'), auto;
+                }
+
+                body {
+                    margin: 0;
+                    min-height: 100vh;
+                    background-image: url("https://static.wikia.nocookie.net/ordemparanormal/images/a/ad/Morte.png/revision/latest/scale-to-width-down/1000?cb=20221031215135&path-prefix=pt-br");
+                    background-size: cover;
+                    background-position: center;
+                    background-attachment: fixed;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    background-color: #000000 !important; /* Fundo reserva */
+                }
+
+                .painel {
+                    width: 65%;
+                    margin: 0 auto;
+                    background: rgba(15, 14, 15, 0.9); /* Estilo Dark */
+                    padding: 50px 30px;
+                    box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+                }
+
+                .topo { text-align: center; margin-bottom: 50px; }
+                .topo h1 { font-size: 3.5em; color: #fff; text-shadow: 0 0 20px #444; }
+                .topo img { max-width: 180px; margin: 20px 0; }
+
+                .cellbit {
+                    margin-bottom: 40px;
+                    padding: 30px;
+                    border-left: 4px solid #444; /* Detalhe lateral elegante */
+                    border-radius: 4px;
+                    background: rgba(255, 255, 255, 0.03);
+                    transition: 0.3s;
+                }
+                
+                .cellbit:hover {
+                    border-left-color: #888;
+                    background: rgba(255, 255, 255, 0.05);
+                }
+                /*imagem da afinidade e os styles responsáveis pela animação*/
+                .afinidade img {
+                    max-width: 550px;
+                    margin: 20px 0;
+                    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+                    width: 550px;
+                    height: auto;
+                }
+                .afinidade {
+                    margin-bottom: 40px;
+                    padding: 30px;
+                    border: 1px solid #333;
+                    border-radius: 12px;
+                    background: rgba(0, 0, 0, 0.4);
+                }
+                .afinidade:hover {
+                    border-left-color: #888;
+                    background: rgba(255, 255, 255, 0.05);
+                }
+                .afinidade img:hover {
+                    filter: grayscale(0%);
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+                }
+                /*imagem do ritual e os styles responsáveis pela animação*/
+                .ritual img {
+                    max-width: 180px;
+                    margin: 20px 0;
+                    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+                }
+                .ritual {
+                    text-align: center;
+                    margin-bottom: 40px;
+                    padding: 30px;
+                    border: 1px solid #333;
+                    border-radius: 12px;
+                    background: rgba(0, 0, 0, 0.4);
+                }
+
+                .ritual:hover {
+                    border-left-color: #888;
+                    background: rgba(255, 255, 255, 0.05);
+                }
+                .ritual img:hover {
+                    filter: grayscale(0%);
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+                }
+
+                /* Container para alinhar os rituais lado a lado */
+                .container-rituais {
+                    display: flex;
+                    gap: 20px;               /* Espaço entre as imagens */
+                    flex-wrap: wrap;        /* Quebra linha se a tela for pequena */
+                    margin: 30px 0;
+                }
+
+                /* Item individual do ritual */
+                .ritual-item {
+                    position: relative;     /* Necessário para o texto se posicionar em relação a ele */
+                    display: inline-block;
+                }
+
+                .ritual-item img {
+                    max-width: 150px;       /* Ajuste o tamanho das imagens dos rituais */
+                    transition: 0.3s;
+                    border-radius: 8px;
+                    cursor: pointer;
+                }
+
+                .ritual-item img:hover {
+                    transform: scale(1.1);  /* Dá um leve zoom ao passar o mouse */
+                    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+                }
+
+                /* O "Textinho" (Tooltip) oculto */
+                .tooltip {
+                    visibility: hidden;
+                    width: 260px;
+                    background-color: rgba(0, 0, 0, 0.85);
+                    color: #fff;
+                    text-align: center;
+                    border: 1px solid #444;
+                    border-radius: 6px;
+                    padding: 8px;
+                    position: absolute;
+                    z-index: 1;
+                    bottom: 110%; /* Aparece acima da imagem */
+                    left: 50%;
+                    transform: translateX(-50%);
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                    font-size: 0.85em;
+                    pointer-events: none; /* Evita que o texto atrapalhe o mouse */
+                }
+
+                /* Faz o texto aparecer quando passa o mouse no ritual-item */
+                .ritual-item:hover .tooltip {
+                    visibility: visible;
+                    opacity: 1;
+                }
+
+                h2, h3 { color: #b5b4b6; text-transform: uppercase; letter-spacing: 2px; }
+                p { color: #ccc; line-height: 1.8; font-size: 1.05rem; }
+
+                /* GRID DAS CRIATURAS */
+                .grid-criaturas {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 20px;
+                    margin-top: 25px;
+                }
+
+                .grid-criaturas img {
+                    width: 50%;
+                    height: 280px;
+                    object-fit: cover;
+                    border-radius: 5px;
+                    filter: grayscale(50%);
+                    transition: 0.5s;
+                }
+
+                .grid-criaturas img:hover {
+                    filter: grayscale(0%);
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+                }
+
+                .energia-label {
+                    text-align: center;
+                    margin-top: 20px;
+                    font-size: 0.75rem;
+                    color: #666;
+                    letter-spacing: 4px;
+                }
+
+                /* Estilo da Seção de Recrutamento */
+                .recrutamento {
+                    text-align: center;
+                    margin-top: 60px;
+                    padding: 40px;
+                    border-top: 1px solid #333;
+                }
+
+                .btn-revelar {
+                    background: transparent;
+                    border: 2px solid #d8d5d5;
+                    color: #444343;
+                    font-size: 24px;
+                    border-radius: 50%;
+                    width: 50px;
+                    height: 50px;
+                    cursor: pointer; /* eu lembre-se que o cursor de caveira já está aplicado no body! */
+                    transition: 0.3s;
+                    margin-top: 15px;
+                }
+                /*seta*/
+                .btn-revelar:hover {
+                    border-color: #181717;
+                    box-shadow: 0 0 15px rgba(27, 27, 27, 0.925); /* Efeito de brilho ao passar o mouse */
+                }
+
+                /* Esconder o formulário inicialmente */
+                .form-escondido {
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: max-height 0.8s ease-in-out, opacity 0.5s;
+                    opacity: 0;
+                    margin-top: 30px;
+                }
+
+                .form-aberto {
+                    max-height: 500px; /* Altura máxima para a animação */
+                    opacity: 1;
+                }
+
+                /* Inputs Estilizados (caixinhas estilizadas) */
+                .form-input {
+                    width: 100%;
+                    max-width: 400px;
+                    background: rgba(0,0,0,0.5);
+                    border: 1px solid #5c5454;
+                    padding: 12px;
+                    color: #000000;
+                    border-radius: 5px;
+                    margin-bottom: 10px;
+                }
+
+                .form-input:focus {
+                    outline: none;
+                    border-color: #7a8cb4; /*borda ao focar*/
+                    background: rgba(252, 249, 249, 0.8); /*fundo ao focar*/
+                }
+
+                /*Botão de envio*/
+                .btn-enviar {
+                    background: #111010;
+                    color: #9e9e9e;
+                    border: 1px solid #000000;
+                    padding: 10px 30px;
+                    letter-spacing: 2px;
+                    transition: 0.4s;
+                    margin-top: 10px;
+                }
+
+                .btn-enviar:hover {
+                    background: #f3f0f0; /*corde fundo da caixinha*/
+                    color: #473e3e; /*cor da parte do textinho ao passar o mouse*/
+                    font-weight: bold;
+                }
+
+                /* Rotação da seta */
+                .girar {
+                    transform: rotate(180deg);
+                }
+
+                @media (max-width: 768px) {
+                    .painel { width: 95%; }
+                    .grid-criaturas { grid-template-columns: 1fr; }
+                }
+            </style>
+
+                <meta name="description" content="" />
+                <meta name="author" content="" />
+                <title>Ordem Paranormal - Elementos</title>
+                <!-- Favicon-->
+                <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+                <!-- Bootstrap icons-->
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+                <!-- Core theme CSS (includes Bootstrap)-->
+                <link href="css/styles.css" rel="stylesheet" />
+        </head>
+        <body class="d-flex flex-column">
+            <main class="flex-shrink-0">
+                <!-- Navigation-->
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <div class="container px-5">
+                        <a class="navbar-brand" href="index.html">Ordem Paranormal</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                <li class="nav-item"><a class="nav-link" href="index.html">Informações</a></li>
+                                <li class="nav-item"><a class="nav-link" href="about.html">Sangue</a></li>
+                                <li class="nav-item"><a class="nav-link" href="contact.html">Conhecimento</a></li>
+                                <li class="nav-item"><a class="nav-link" href="pricing.html">Energia</a></li>
+                                <li class="nav-item"><a class="nav-link" href="faq.html">Morte</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Pricing section-->
+
+        <div class="painel">
+            <div class="topo" data-aos="fade-down">
+                <h1>MORTE</h1>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/a/ad/Morte.png/revision/latest/scale-to-width-down/1000?cb=20221031215135&path-prefix=pt-br" alt="Símbolo">
+                <p>
+                    O elemento morte est&aacute; relacionado &agrave; diversas caracter&iacute;sticas como espirais,
+                    repeti&ccedil;&atilde;o, Lodo Preto e distor&ccedil;&atilde;o temporal, al&eacute;m de distorcer a
+                    percep&ccedil;&atilde;o eg&oacute;ica da exist&ecirc;ncia de cada indiv&iacute;duo.
+                    As cores que representam esse elemento s&atilde;o preto e tons de cinzas.
+                </p>
+            </div>
+
+            <div class="afinidade" data-aos="zoom-in">
+                <h2>Afinidade</h2>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/d/d9/Altera%C3%A7%C3%B5es_de_Morte_em_Sobrevivendo_ao_Horror.png/revision/latest?cb=20240710233356&path-prefix=pt-br" alt="Aparencia de quem possui afinidade com Morte">
+                <p>Possuir uma afinidade ao elemento de Morte significa ser escolhido pela sua Entidade. Dentre as v&aacute;rias consequ&ecirc;ncias disso, &eacute; poss&iacute;vel citar: altera&ccedil;&atilde;o na cor de pele, tendo um aspecto mais acinzentado, os completamente negros, sangue escurecido, altera&ccedil;&atilde;o na estrutura &oacute;ssea, altera&ccedil;&atilde;o na percep&ccedil;&atilde;o temporal, al&eacute;m de uma personalidade mais fria e ap&aacute;tica, tendo uma desafeta&ccedil;&atilde;o em rela&ccedil;&atilde;o ao impacto que a morte pode gerar.</p>
+            </div>
+
+            <div class="ritual" data-aos="zoom-in">
+                <h2>Rituais</h2>
+                <img src="https://static.wikia.nocookie.net/a-ordem-rpg/images/c/c3/Ritual_de_Definhar.png/revision/latest?cb=20221025004154&path-prefix=pt-br" alt="Ritual de Definhar">
+                <p>Os rituais de Morte est&atilde;o ligados &agrave; distor&ccedil;&atilde;o do tempo e &agrave; degrada&ccedil;&atilde;o org&acirc;nica. Para realiz&aacute;-los, s&atilde;o necess&aacute;rias cinzas de seres mortos. Os efeitos dos rituais alteram a passagem do tempo, como o Ritual de Cicatriza&ccedil;&atilde;o, que acelera a cura, e o Ritual de Consumir Manancial, que aumenta vitalidade.</p>
+
+                <div class="ritual-item">
+                        <img src="https://static.wikia.nocookie.net/a-ordem-rpg/images/e/ef/Aut%C3%B3lise_Temporal.png/revision/latest?cb=20221025004822&path-prefix=pt-br" alt="Ritual 1">
+                        <span class="tooltip">Elemento: Morte
+                        <br>
+                        Pergunta do Outro Lado: "Por quanto tempo voc&ecirc; acha que vai viver?"
+                        </br>
+                        Conjura&ccedil;&atilde;o: Ter em m&atilde;os cinzas humanas e focar no s&iacute;mbolo do ritual.
+                        <br>
+                        Usu&aacute;rio: Sean Kirishima
+                        </br>
+                        Efeito: As cinzas humanas voam e queimam o bra&ccedil;o do usu&aacute;rio enquanto um alvo escolhido por ele sofre 2d8 de dano tendo uma parte espec&iacute;fica de seu corpo temporalmente destru&iacute;da.
+                    </span>
+                </div>
+
+                <div class="ritual-item">
+                        <img src="https://static.wikia.nocookie.net/a-ordem-rpg/images/4/4a/Envelhecimento_Localizado.png/revision/latest?cb=20221025004510&path-prefix=pt-br" alt="Ritual 2">
+                        <span class="tooltip"> Ritual de Envelhecimento Localizado
+                        Elemento: Morte
+                        <br>
+                        Custo: 4 pontos de Mana
+                        </br>
+                        Conjura&ccedil;&atilde;o: Ingerir cinzas humanas.
+                        <br>
+                        Usu&aacute;rio: Henry e Roberto
+                        </br>
+                        Efeito:
+                        Indouto: Cura 1d6 de vida de um alvo ou de si mesmo. N&atilde;o cura les&atilde;o grave.
+                        Discente: Cura 2d8+2 de vida de um alvo ou de si mesmo, sendo capaz de curar les&atilde;o grave.</span>
+                </div>
+
+                <div class="ritual-item">
+                        <img src="https://static.wikia.nocookie.net/a-ordem-rpg/images/0/07/Espirais_da_Morte.png/revision/latest?cb=20230106195316&path-prefix=pt-br" alt="Ritual 3">
+                        <span class="tooltip">Ritual de Espirais da Morte
+                        <br>
+                        Elemento: Morte
+                        </br>
+                        Pergunta do Outro Lado: "O tempo muitas vezes &eacute; inimigo da humanidade. Me conta um momento que voc&ecirc; perdeu algo por n&atilde;o ter tempo o suficiente."
+                        <br>
+                        Custo: 4 pontos de Mana/+1 por rodada
+                        </br>
+                        Conjura&ccedil;&atilde;o: Arremessar terra infértil na direção do alvo
+                        </br>
+                        Usu&aacute;rio: Henry Hudson
+                        <br>
+                        Efeito: Gera espirais no corpo de um alvo, deixando-o mais lento, sofrendo -2 de penalidade para suas rolagens.</br>
+                        </span>
+                    </div>
+            </div>
+
+            <div class="cellbit" data-aos="zoom-in">
+                <h3>Criaturas do Morte</h3>
+                <p>As criaturas de Morte s&atilde;o ap&aacute;ticas, mostrando frieza e indiferen&ccedil;a, com movimentos inconstantes. Sua percep&ccedil;&atilde;o do tempo pode ser distorcida, permitindo-lhes acelerar ou desacelerar sua pr&oacute;pria vis&atilde;o temporal. Elas t&ecirc;m uma forma esquel&eacute;tica e esguia, frequentemente acompanhada do Lodo Preto da Morte, e podem exibir formas em espirais. Sua movimenta&ccedil;&atilde;o &eacute; err&aacute;tica devido &agrave; altera&ccedil;&atilde;o do tempo em seus corpos. Al&eacute;m disso, elas t&ecirc;m a habilidade de realizar rituais. Exemplos incluem os Enraizados e a Marionete.</p>
+                
+                <div class="grid-criaturas">
+                    <img src="https://static.wikia.nocookie.net/ordemparanormal/images/6/6d/Arte_do_Enraizado_no_livro_de_regras.png/revision/latest/scale-to-width-down/1000?cb=20251018203108&path-prefix=pt-br" alt="Enraizado">
+                    <img src="https://static.wikia.nocookie.net/ordemparanormal/images/f/fa/Miniatura_da_Marionete_em_Calamidade.png/revision/latest/scale-to-width-down/1000?cb=20251018203347&path-prefix=pt-br" alt="Marionete">
+                    <img src="https://static.wikia.nocookie.net/ordemparanormal/images/5/50/Miniatura_Existido_de_Morte_em_Desconjura%C3%A7%C3%A3o.png/revision/latest?cb=20211116035916&path-prefix=pt-br" alt="Existidos de Morte">
+                    <img src="https://static.wikia.nocookie.net/ordemparanormal/images/e/e8/Arte_do_Carni%C3%A7al_Preto_da_Morte_no_livro_de_regras.png/revision/latest?cb=20220814045448&path-prefix=pt-br" alt="O Carniçal Preto da Morte">
+                </div>
+                
+                <div class="energia-label">Ordem Paranormal</div>
+            </div>
+        </div>
+
+        <div class="painel"> </div>
+        <div class="recrutamento" data-aos="fade-up">
+        <h3>Deseja se juntar a nós do Elemento de Morte?</h3>
+        <button class="btn-revelar" onclick="toggleForm()">
+            <i class="bi bi-chevron-down" id="seta"></i>
+        </button>
+
+        <div id="form-morte" class="form-escondido">
+            <form action="#">
+                <div class="mb-3">
+                    <input type="text" class="form-input" placeholder="Seu Nome Completo" required>
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-input" placeholder="Seu E-mail (Gmail)" required>
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-input" placeholder="Crie uma Senha" required>
+                </div>
+                <div class="mb-3">
+                    <select class="form-input">
+                        <option value="" disabled selected>Por que você nos escolheu?</option>
+                        <option value="poder">Busca por Poder</option>
+                        <option value="tempo">Controle do Tempo</option>
+                        <option value="eterno">A vida é uma espiral</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-enviar">ENTREGAR MINHA ALMA</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Your Website 2023</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            // Inicializa as animações
+            AOS.init({
+                duration: 1000, // Duração de 1 segundo
+                once: true      // Anima apenas uma vez ao rolar
+            });
+
+            function toggleForm() {
+                const formulario = document.getElementById('form-morte');
+                const seta = document.getElementById('seta');
+                // Liga/Desliga a classe de visibilidade
+                formulario.classList.toggle('form-aberto');
+        
+                // Gira a setinha
+                seta.style.transition = "0.3s";
+                if (formulario.classList.contains('form-aberto')) {
+                seta.style.transform = "rotate(180deg)";
+                } else {
+                    seta.style.transform = "rotate(0deg)";
+                }
+            }
+            // Manipulação do envio do formulário
+
+                document.querySelector('form').addEventListener('submit', function(event) {
+                event.preventDefault(); // Impede a página de dar F5
+
+                this.reset(); // Limpa todos os campos
+
+                alert("Informações enviadas para o Outro Lado. O formulário foi limpo.");
+            });
+        </script>
+    </body>
+</html>

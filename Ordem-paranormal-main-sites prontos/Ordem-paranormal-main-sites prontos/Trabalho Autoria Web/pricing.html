@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+    <title>ELEMENTO DE ENERGIA</title>
+    <style>
+        a.navbar-brand {
+        color: #b388ff;
+        }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background-image: url("https://static.wikia.nocookie.net/ordemparanormal/images/c/c9/Calamidade_Ep_6.png/revision/latest?cb=20250819235548&path-prefix=pt-br");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #e6ccff;
+            transform: none !important;
+        }
+
+        .painel {
+            min-height: 100vh;
+            width: 65%;
+            margin: 0 auto;
+            background: rgba(30, 0, 45, 0.75);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 30px;
+            box-shadow: 0 0 40px  rgba(120, 0, 200, 0.6);
+        }
+
+        .topo {
+            max-width: 600px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .topo h1 {
+            font-size: 2.3em;
+            margin-bottom: 15px;
+            color: #d3a4ff;
+            text-shadow: 0 0 15px rgba(199, 125, 255, 0.8);
+        }
+
+        .topo p {
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        /* Imagem do símbolo */
+        .topo img {
+            max-width: 140px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 15px rgba(180, 100, 255, 0.8));
+        }
+
+        .container {
+            max-width: 500px;
+            text-align: center;
+            padding: 30px;
+            border: 2px solid #b388ff;
+            border-radius: 12px;
+            background: rgba(60, 0, 90, 0.6);
+            box-shadow: 0 0 25px rgba(170, 80, 255, 0.6);
+        }
+
+        .container h2 {
+            font-size: 1.7em;
+            margin-bottom: 15px;
+            color: #d3a4ff;
+            text-shadow: 0 0 15px rgba(199, 125, 255, 0.8);
+        }
+
+        .container p {
+            font-size: 17px;
+            line-height: 1.5;
+        }
+
+        /* Imagem da manifestação */
+        .container img {
+            max-width: 75%;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(180, 100, 255, 0.6);
+        }
+
+        .energia {
+            margin-top: 20px;
+            font-size: 0.8em;
+            letter-spacing: 2px;
+            color: #b388ff;
+            text-transform: uppercase;
+            opacity: 0.85;
+        }
+        p {
+            color: #b388ff;
+        }
+        .link-light {
+            color: #b388ff; 
+        }
+        .text-white {
+            color: #b388ff;
+        }
+
+        @media (max-width: 768px) {
+            .painel {
+                width: 85%;
+            }
+        }
+        a.link-roxo {
+            color: rgba(120, 0, 200, 0.6);          
+            text-decoration: none;  
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(60, 0, 90, 0.6);
+            
+        }
+       .catalogo {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 40px;
+}
+
+
+.card-personagem {
+    background: rgba(60, 0, 90, 0.7);
+    border: 2px solid #b388ff;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(179, 136, 255, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-personagem:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 40px rgba(200, 160, 255, 0.9);
+}
+
+.card-personagem img {
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 3px solid #d3a4ff;
+    box-shadow: 0 0 15px rgba(180, 100, 255, 0.8);
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-position: center top; 
+}
+.card-personagem h3 {
+    color: #e6ccff;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(200, 160, 255, 0.8);
+}
+
+.info {
+    font-size: 14px;
+    color: #d3a4ff;
+    line-height: 1.5;
+}
+
+.info span {
+    display: block;
+    margin-top: 6px;
+}
+/* Card que ocupa a linha inteira */
+.card-destaque {
+    grid-column: 1 / -1; /* ocupa todas as colunas */
+    max-width: 400px;
+    margin: 0 auto 40px auto; /* centraliza */
+}
+   /* Cursor cubo roxo glitch */
+.cursor-glitch {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: none;
+
+    /* cubo */
+    border-radius: 0; 
+    background: rgba(179, 136, 255, 0.85);
+    box-shadow:
+        0 0 6px rgba(179, 136, 255, 0.9),
+        0 0 14px rgba(140, 0, 255, 0.7);
+
+    animation: glitchCubo 0.16s infinite;
+}
+ a.link-roxo {
+      color: rgba(120, 0, 200, 0.6);
+      text-decoration: none;  /* remove sublinhado */
+      font-weight: bold;
+    }
+
+    /* Quando passar o mouse */
+    a.link-roxo:hover {
+      color: #C8A2C8; /* lilás */
+      text-decoration: underline;
+    }
+
+/* Glitch + troca de tons */
+@keyframes glitchCubo {
+    0% {
+        transform: translate(-50%, -50%) translate(0, 0);
+        background: rgba(179, 136, 255, 0.85);
+    }
+
+    20% {
+        transform: translate(-50%, -50%) translate(1px, -1px);
+        background: rgba(200, 160, 255, 0.9);
+    }
+
+    40% {
+        transform: translate(-50%, -50%) translate(-1px, 1px);
+        background: rgba(150, 80, 255, 0.9);
+    }
+
+    60% {
+        transform: translate(-50%, -50%) translate(1px, 1px);
+        background: rgba(190, 120, 255, 0.9);
+    }
+
+    80% {
+        transform: translate(-50%, -50%)
+    }
+    
+
+}
+.form-container {
+    width: 65%;
+    margin: 60px auto;
+    padding: 40px;
+    background: rgba(30, 0, 45, 0.85);
+    border: 2px solid #b388ff;
+    border-radius: 25px;
+    box-shadow: 0 0 40px rgba(179,136,255,0.6);
+    color: #e6ccff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.bloco {
+    background: rgba(60, 0, 90, 0.6);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #b388ff;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background: #1e0030;
+    color: #e6ccff;
+}
+
+button {
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: #b388ff;
+    color: #1e0030;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.mensagem {
+    text-align: center;
+    font-size: 20px;
+    display: none;
+}
+
+/* OVERLAY DO CAOS */
+#overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    text-align: center;
+}
+
+#overlay img {
+    width: 200px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 25px purple);
+}
+
+#overlay p {
+    color: #e6ccff;
+    font-size: 18px;
+    text-shadow: 0 0 15px purple;
+}
+/* Glitch nas bordas da tela */
+.glitch-bordas::before,
+.glitch-bordas::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 99998;
+    border: 2px solid rgba(179, 136, 255, 0.6);
+    filter: blur(1px);
+    animation: glitchBorda 0.2s infinite;
+}
+
+.glitch-bordas::after {
+    border-color: rgba(140, 0, 255, 0.8);
+    animation-delay: 0.1s;
+}
+
+@keyframes glitchBorda {
+    0%   { clip-path: inset(0 0 95% 0); }
+    25%  { clip-path: inset(10% 0 80% 0); }
+    50%  { clip-path: inset(40% 0 40% 0); }
+    75%  { clip-path: inset(80% 0 10% 0); }
+    100% { clip-path: inset(0 0 95% 0); }
+}
+/* Bug no formulário */
+@keyframes bugFormulario {
+    0%   { transform: translate(0,0); filter: none; }
+    20%  { transform: translate(-2px,2px); filter: hue-rotate(15deg); }
+    40%  { transform: translate(2px,-2px); filter: hue-rotate(-15deg); }
+    60%  { transform: translate(-1px,1px); filter: blur(1px); }
+    80%  { transform: translate(1px,-1px); filter: contrast(1.3); }
+    100% { transform: translate(0,0); filter: none; }
+}
+
+.form-bug {
+    animation: bugFormulario 0.6s infinite;
+}
+#texto-indigno {
+    color: #b388ff;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow:
+        0 0 10px rgba(179,136,255,0.8),
+        0 0 25px rgba(140,0,255,0.9);
+    animation: piscarIndigno 1.2s infinite;
+}
+
+@keyframes piscarIndigno {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.2; }
+    100% { opacity: 1; }
+}
+/* Imagem do Anfitrião */
+#img-anfitriao {
+    width: 260px;
+    border-radius: 50%;
+    position: relative;
+    animation: tremorAnfitriao 0.12s infinite;
+    filter: drop-shadow(0 0 15px rgba(179,136,255,0.9))
+            drop-shadow(0 0 35px rgba(140,0,255,0.8))
+            drop-shadow(0 0 60px rgba(200,120,255,0.7));
+}
+
+/* Aura pulsante */
+#img-anfitriao::after {
+    content: "";
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+        rgba(179,136,255,0.5),
+        rgba(140,0,255,0.25),
+        transparent 70%
+    );
+    animation: auraPulse 1.5s infinite alternate;
+    z-index: -1;
+}
+
+/* Tremor / bug */
+@keyframes tremorAnfitriao {
+    0%   { transform: translate(0, 0); }
+    20%  { transform: translate(-1px, 1px); }
+    40%  { transform: translate(1px, -1px); }
+    60%  { transform: translate(-1px, -1px); }
+    80%  { transform: translate(1px, 1px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Pulso da aura */
+@keyframes auraPulse {
+    from {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+}
+#texto-anfitriao {
+    font-size: 20px;
+    color: #d3a4ff;
+    text-align: center;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    user-select: none;
+}
+
+#texto-anfitriao span {
+    display: inline-block;
+    animation: piscarRoxo 0.25s infinite alternate;
+}
+
+@keyframes piscarRoxo {
+    0% {
+        color: #b388ff;
+        text-shadow: 0 0 5px #b388ff;
+    }
+    100% {
+        color: #8a2be2;
+        text-shadow: 0 0 12px #a855f7;
+    }
+}
+/* Grimorio */
+.grimorio-container{
+  width:80%;
+  margin:80px auto;
+}
+
+.grimorio-livro{
+  display:flex;
+  background:#1a0026;
+  border:4px solid #6b2fa6;
+  box-shadow:0 0 50px rgba(160,80,255,0.6);
+}
+
+/* ===== PÁGINAS ===== */
+.grimorio-pagina{
+  width:50%;
+  padding:40px;
+  position:relative;
+  background:linear-gradient(145deg,#2a003d,#12001c);
+  border-right:2px solid #3d0066;
+}
+
+.grimorio-direita{
+  border-right:none;
+  border-left:2px solid #3d0066;
+}
+
+/* ===== CONTEÚDO ===== */
+.grimorio-conteudo{
+  text-align:center;
+}
+
+.grimorio-imagem{
+  width:180px;
+  height:180px;
+  object-fit:cover;
+  margin:0 auto 20px;
+  border:3px solid #b388ff;
+  box-shadow:0 0 20px purple;
+}
+
+.grimorio-titulo{
+  color:#cfa8ff;
+  text-shadow:0 0 10px purple;
+}
+
+/* ===== BOTÃO ===== */
+.grimorio-botao{
+  width:60px;
+  height:60px;
+  margin:20px auto;
+  background:#3a005c;
+  border:2px solid #b388ff;
+  color:#e6ccff;
+  font-size:22px;
+  cursor:pointer;
+  transition:box-shadow 0.3s;
+}
+
+.grimorio-botao:hover{
+  box-shadow:0 0 25px #b388ff;
+}
+
+/* ===== Texto do grimorio ===== */
+.grimorio-texto{
+  font-size:18px;
+  animation:grimorio-roxo 3s infinite alternate;
+}
+
+@keyframes grimorio-roxo{
+  from{color:#b388ff;}
+  to{color:#8a2be2;}
+}
+
+.oculto{
+  display:none;
+}
+
+/* ===== NAVEGAÇÃO ===== */
+.grimorio-nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:32px;
+  cursor:pointer;
+  color:#b388ff;
+}
+@media (max-width: 576px) {
+  body {
+    background-attachment: scroll; /* evita travamento no mobile */
+  }
+
+  .painel {
+    width: 95%;
+    padding: 30px 15px;
+  }
+
+  .topo h1 {
+    font-size: 1.8em;
+  }
+
+  .topo p,
+  .container p {
+    font-size: 15px;
+  }
+
+  .topo img {
+    max-width: 110px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .catalogo {
+    grid-template-columns: 1fr; /* 1 card por linha */
+    gap: 20px;
+  }
+
+  .card-destaque {
+    grid-column: auto;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .card-personagem img {
+    width: 110px;
+    height: 110px;
+  }
+}
+@media (max-width: 768px) {
+  .grimorio-livro {
+    flex-direction: column;
+  }
+
+  .grimorio-pagina {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid #3d0066;
+  }
+
+  .grimorio-direita {
+    border-left: none;
+  }
+
+  .grimorio-nav {
+    top: auto;
+    bottom: 10px;
+    transform: none;
+  }
+
+  .grimorio-nav.esquerda {
+    left: 20px;
+  }
+
+  .grimorio-nav.direita {
+    right: 20px;
+  }
+}
+@media (max-width: 576px) {
+  .form-container {
+    width: 95%;
+    padding: 25px 15px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 15px;
+  }
+}
+
+.grimorio-nav.esquerda{left:10px;}
+.grimorio-nav.direita{right:10px;}
+
+    </style>
+
+               <a id="topo"></a>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Ordem Paranormal - Elementos</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.html">Ordem Paranormal</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Informações</a></li>
+                            <li class="nav-item"><a class="nav-link" href="about.html">Sangue</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.html">Conhecimento</a></li>
+                            <li class="nav-item"><a class="nav-link" href="pricing.html">Energia</a></li>
+                            <li class="nav-item"><a class="nav-link" href="faq.html">Morte</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Pricing section-->
+
+    <div class="painel">
+
+        <div class="topo">
+ 
+            <a href="#fim" class="link-roxo">Des&ccedil;a at&eacute; o fim da p&aacute;gina.</a>
+            <br /><br />
+            <h1>𝐸𝔫єr𝚐𝑖ɑ</h1>
+            <!-- IMAGEM AGORA ACIMA DO TEXTO -->
+            <img src="https://static.wikia.nocookie.net/ordemparanormal/images/e/e1/Energia.png/revision/latest?cb=20221031212916&path-prefix=pt-br"
+                 alt="Símbolo da Energia">
+
+            <p>
+                A Energia é uma entidade do caos. Tudo o que não pode ser explicado,
+                o intangível, é a anarquia. Uma mudança constante, o calor e o frio,
+                a luz e as trevas. Tudo que envolve imprevisibilidade e transformação
+                agrada a entidade de Energia.
+            </p>
+        </div>
+    
+    
+        <div class="container">
+            <h2>Afinidade</h2>
+            <p>
+             Possuir uma camada ao elemento de Energia significa ser escolhido por sua Entidade. Dentre as v&aacute;rias consequ&ecirc;ncias disso, &eacute; poss&iacute;vel citar: olhos multicoloridos e luminescentes, sangue se misturando com o fogo da Energia, tiques incontrol&aacute;veis, tremedeira, crises de ansiedade, hiperatividade, queimaduras, cabelos e pele com n&uacute;cleos vibrantes, partes do corpo mescladas com tecnologia ou com objetos met&aacute;licos, al&eacute;m de uma personalidade imprevis&iacute;vel, ca&oacute;tica e insana.
+            </p>
+            <img src="https://static.wikia.nocookie.net/ordemparanormal/images/8/84/Altera%C3%A7%C3%B5es_de_Energia_em_Sobrevivendo_ao_Horror.png/revision/latest/scale-to-width-down/400?cb=20240710233341&path-prefix=pt-br"
+                 alt="Manifestação da Energia Paranormal">
+
+            <div class="energia">
+                Energia Paranormal
+            </div>
+        </div>
+<div class="catalogo">
+<!-- PERSONAGEM 1 -->
+    <div class="card-personagem card-destaque">
+    <img src="https://static.wikia.nocookie.net/ordemparanormal/images/b/b2/Miniatura_O_Anfitri%C3%A3o_em_Calamidade.png/revision/latest/scale-to-width-down/160?cb=20241229052340&path-prefix=pt-br" alt="Anfitrião">
+    <h3>𝒜𝔫f𝑖Ƭя𝑖α𝚘</h3>
+    <div class="info">
+        <span><strong>Elemento:</strong> Energia</span>
+        <span><strong>Classe:</strong> Relíquia</span>
+        <span><strong>Origem:</strong> Desconjuração - Episódio 7 - "Anfitrião"</span>
+        <span><strong>Descrição:</strong> O Anfitrião é o nome dado ao portador da Relíquia de Energia. Essa entidade de Energia com complemento de Conhecimento e Medo é uma das manifestações mais incessantes por toda a história da Realidade. Ele procura apenas se divertir com a agonia e o caos, distorcendo as regras da realidade.</span>
+    </div>
+</div>
+
+    <!-- PERSONAGEM 2 -->
+    <div class="card-personagem">
+        <img src="https://static.wikia.nocookie.net/ordemparanormal/images/7/7f/Miniatura_Kaiser_50%25_em_Desconjura%C3%A7%C3%A3o.png/revision/latest/scale-to-width-down/130?cb=20210524184354&path-prefix=pt-br"
+             alt="Personagem 2">
+        <h3>Kaiser</h3>
+        <div class="info">
+            <span><strong>Elemento:</strong> Energia</span>
+            <span><strong>Classe:</strong> Combatente</span>
+            <span><strong>Origem:</strong> O Segredo na Floresta - Episódio 1 - "Equipe Kelvin"</span>
+            <span><strong>Descrição:</strong> Kaiser é um habilidoso hacker responsável por desenvolver a Central de Reconhecimento de Irregularidades Sobrenaturais, uma inteligência artificial que detecta atividades paranormais. Retornou como protagonista em Ordem Paranormal: Desconjuração, assumindo para si um novo alter ego: Kaiser.</span>
+        </div>
+    </div>
+ <!-- PERSONAGEM 3 -->
+    <div class="card-personagem">
+        <img src="https://static.wikia.nocookie.net/ordemparanormal/images/8/88/Miniatura_Erin_com_casaco_do_Tristan_em_Desconjura%C3%A7%C3%A3o.png/revision/latest/scale-to-width-down/140?cb=20210512234424&path-prefix=pt-br"
+             alt="Personagem 3">
+        <h3>Erin</h3>
+        <div class="info">
+            <span><strong>Elemento:</strong> Energia</span>
+            <span><strong>Classe:</strong> Especialista</span>
+            <span><strong>Origem:</strong> Desconjuração - Episódio 1 - "Ordo Realitas"</span>
+            <span><strong>Descrição:</strong> Erin Parker foi uma das protagonistas da série Ordem Paranormal, presente em Desconjuração. Ela era uma engenheira que fazia parte da Equipe Brasa da Ordo Realitas, entrando originalmente na Ordem por influência de sua avó, Francisca Parker, e depois, se envolvendo na investigação do desaparecimento de Elizabeth Webber, assim, se juntando a Força D.</span>
+        </div>
+    </div>
+
+  <!-- PERSONAGEM 4 -->
+    <div class="card-personagem">
+        <img src="https://static.wikia.nocookie.net/ordemparanormal/images/4/4b/Miniatura_do_Alexandre_em_Sinais_do_Outro_Lado.png/revision/latest/scale-to-width-down/135?cb=20221105231325&path-prefix=pt-br"
+             alt="Personagem 4">
+        <h3>Alexandre</h3>
+        <div class="info">
+            <span><strong>Elemento:</strong> Energia</span>
+            <span><strong>Classe:</strong> Ocultista</span>
+            <span><strong>Origem:</strong> Sinais do Outro Lado - Episódio 1 - "Alheios"</span>
+            <span><strong>Descrição:</strong> Alexandre, mais conhecido como Xande , foi um dos protagonistas da série Ordem Paranormal , presente em Sinais do Outro Lado . 
+
+Xande era um dos membros do grupo Os Cinco , fundado por Morato Vertaler , ex-membro de uma organização que combate o paranormal. No seu cartão de identificação, a sua função no grupo era o responsável pelos conhecimentos do oculto, podendo identificar as presenças das entidades paranormais. Xande tem sua primeira amizade no 1º episódio de Sinais do Outro Lado , saindo da van de Francisco Albuquerque e avançando contra um Rastejador Sombrio com seu taco amaldiçoado. </span>
+        </div>
+    </div>
+ <!-- PERSONAGEM 5 -->
+    <div class="card-personagem">
+        <img src="https://static.wikia.nocookie.net/ordemparanormal/images/a/a1/Miniatura_Dara_em_Sinais_do_Outro_Lado.png/revision/latest/scale-to-width-down/130?cb=20221105230545&path-prefix=pt-br"
+             alt="Personagem 5">
+        <h3>Dara</h3>
+        <div class="info">
+            <span><strong>Elemento:</strong> Energia</span>
+            <span><strong>Classe:</strong> Especialista</span>
+            <span><strong>Origem:</strong> Sinais do Outro Lado - Episódio 1 - "Alheios"</span>
+            <span><strong>Descrição:</strong> Dara Alice Venturini é uma das protagonistas da série Ordem Paranormal, presente em Sinais do Outro Lado. Dara é um dos membros do grupo Os Cinco, fundado pelo ex-membro de uma organização que combate o paranormal, Morato Vertaler. Em seu cartão de identificação, sua função no grupo é ser o suporte médico, auxiliando e protegendo seus aliados, além de também ser uma ótima investigadora. Dara aparece no 1º episódio de Sinais do Outro Lado, dentro da van de Francisco Albuquerque durante uma emboscada do grupo contra um Rastejador Sombrio. </span>
+        </div>
+    </div>
+<!-- PERSONAGEM 6 -->
+        <div class="card-personagem">
+        <img src="https://static.wikia.nocookie.net/ordemparanormal/images/f/fd/Miniatura_do_Chico_em_Sinais_do_Outro_Lado.png/revision/latest/scale-to-width-down/125?cb=20221105230324&path-prefix=pt-br"
+            alt="Personagem 6">
+        <h3>Chico</h3>
+        <div class="info">
+            <span><strong>Elemento:</strong> Energia</span>
+            <span><strong>Classe:</strong> Especialista</span>
+            <span><strong>Origem:</strong> Sinais do Outro Lado - Episódio 1 - "Alheios"</span>
+            <span><strong>Descrição:</strong> Francisco "Chico" Albuquerque é um dos protagonistas da série Ordem Paranormal, presente em Sinais do Outro Lado. Chico é um dos membros do grupo Os Cinco, um grupo formado pelo ex-membro de uma organização que combate o paranormal, Morato Vertaler. Em seu cartão de identificação, sua função no grupo é ser o especialista em tecnologia do grupo, tendo criatividade e improvisação em aparelhos tecnológicos. Chico aparece no 1º episódio de Sinais do Outro Lado, dirigindo sua van e acendendo o farol na direção de um Rastejador Sombrio, o impossibilitando de fugir e permitindo que seus companheiros o combatam.</span>
+        </div>
+    </div>
+<!-- PERSONAGEM 7 -->
+    <div class="card-personagem">
+        <img src="https://static.wikia.nocookie.net/ordemparanormal/images/1/10/Miniatura_Guilherme_Santos_em_Sinais_do_Outro_Lado.png/revision/latest/scale-to-width-down/135?cb=20221105231035&path-prefix=pt-br"
+            alt="Personagem 7">
+        <h3>Guizo</h3>
+        <div class="info">
+            <span><strong>Elemento:</strong> Energia</span>
+            <span><strong>Classe:</strong> Ocultista</span>
+            <span><strong>Origem:</strong> Sinais do Outro Lado - Episódio 1 - "Alheios"</span>
+            <span><strong>Descrição:</strong> Guilherme R. Santos, mais conhecido como Guizo, é um dos protagonistas da série Ordem Paranormal, presente em Sinais do Outro Lado. Guizo é um dos membros do grupo Os Cinco, um grupo formado pelo ex-membro de uma organização que combate o paranormal, Morato Vertaler. Em seu cartão de identificação, sua função no grupo é ser a câmera das missões, fazendo operações das coisas paranormais que encontra. Guizo aparece no 1º episódio de Sinais do Outro Lado, saindo da porta do estacionamento da Café's Pizzaria e emboscando um Rastejador Sombrio junto com seus companheiros.</span>
+        </div>
+
+    </div>
+<!-- PERSONAGEM 8 -->
+    <div class="card-personagem">
+    <img src="https://static.wikia.nocookie.net/ordemparanormal/images/6/6a/Miniatura_L%C3%ADrio_em_Sinais_do_Outro_Lado.png/revision/latest/scale-to-width-down/152?cb=20221105230727&path-prefix=pt-br"
+         alt="Personagem 8">
+    <h3>Lírio</h3>
+    <div class="info">
+        <span><strong>Elemento:</strong> Energia</span>
+        <span><strong>Classe:</strong> Combatente</span>
+        <span><strong>Origem:</strong> Sinais do Outro Lado - Episódio 1 - "Alheios"</span>
+        <span><strong>Descrição:</strong> Lírio Tellini é um dos protagonistas da série Ordem Paranormal, presente em Sinais do Outro Lado. Lírio é um dos membros do grupo Os Cinco, um grupo formado pelo ex-membro de uma organização que combate o paranormal, Morato Vertaler. Em seu cartão de identificação, sua função no grupo é ser a parede. Lírio aparece no 1º episódio de Sinais do Outro Lado, pulando do telhado do estacionamento da Café's Pizzaria e destruindo um Rastejador Sombrio com sua marreta Leonora.</span>
+    </div>
+</div>
+<!-- PERSONAGEM 9 -->
+<div class="card-personagem">
+    <img src="https://static.wikia.nocookie.net/ordemparanormal/images/e/e0/Miniatura_Am%C3%A9lie_Florence_em_O_Segredo_na_Ilha.png/revision/latest/scale-to-width-down/100?cb=20220817224410&path-prefix=pt-br"
+         alt="Personagem 9">
+    <h3>Amelie</h3>
+    <div class="info">
+        <span><strong>Elemento:</strong> Energia</span>
+        <span><strong>Classe:</strong> Ocultista</span>
+        <span><strong>Origem:</strong> O Segredo na Ilha - Episódio 1 - "Tipora"</span>
+        <span><strong>Descrição:</strong> Amelie Florence é uma das protagonistas da série Ordem Paranormal, presente em O Segredo na Ilha. Ela é uma universitária, filha de Angelina e Montel Florence e irmã mais velha de Olivier Florence. Amelie, junto de sua família, sobreviveu para a Ilha de Tipora devido ao trabalho de seu pai, que foi contratada para avaliar as obras de um pintor desaparecido que vivia na mansão onde os Florence ficariam. Lá, conheceram Bárbara Lima e Milo Castello, que se juntaram aos dois irmãos para desvendar os segredos da ilha. Amelie teve sua primeira reunião no 1º episódio de O Segredo na Ilha, ao ficar presa nas cordas do barco que a levava até Tipora, se recusando a aceitar a ajuda dos outros pra se soltar.</span>
+    </div>
+</div>
+</div>
+<!-- ================== GRIMÓRIO ================== -->
+<div class="grimorio-container">
+  <div class="grimorio-livro">
+
+    <!-- Página Esquerda -->
+    <div class="grimorio-pagina grimorio-esquerda">
+      <div class="grimorio-conteudo">
+        <img class="grimorio-imagem" />
+        <h2 class="grimorio-titulo"></h2>
+
+        <button class="grimorio-botao">⧫</button>
+
+        <p class="grimorio-texto oculto"></p>
+      </div>
+
+      <div class="grimorio-nav esquerda"><span class="grimorio-seta">&lt;</span></div>
+    </div>
+
+    <!-- Página Direita -->
+    <div class="grimorio-pagina grimorio-direita">
+      <div class="grimorio-conteudo">
+        <img class="grimorio-imagem" />
+        <h2 class="grimorio-titulo"></h2>
+
+        <button class="grimorio-botao">⧫</button>
+
+        <p class="grimorio-texto oculto"></p>
+      </div>
+
+      <div class="grimorio-nav direita"><span class="grimorio-seta">&gt;</span></div>
+    </div>
+
+  </div>
+</div>
+        <div class="form-container">
+
+    <form id="form-caos">
+        <!-- BLOCO 1 -->
+        <div class="bloco">
+            <label>Nome e Sobrenome</label>
+            <input type="text" placeholder="Digite seu nome completo" required>
+        </div>
+
+        <!-- BLOCO 2 -->
+        <div class="bloco">
+            <label>Escolha seu personagem favorito</label>
+            <select id="personagem" required>
+                <option value="">Selecione...</option>
+                <option value="anfitriao">Anfitrião</option>
+                <option value="p1">Kaiser</option>
+                <option value="p2">Erin</option>
+                <option value="p3">Xande</option>
+                <option value="p4">Dara</option>
+                <option value="p5">Chico</option>
+                <option value="p6">Guizo</option>
+                <option value="p7">Lírio</option>
+                <option value="p8">Amelie</option>
+            </select>
+        </div>
+
+        <button type="submit">Confirmar</button>
+    </form>
+
+    <div id="mensagem-final" class="mensagem"></div>
+</div>
+<div id="overlay">
+    <img id="img-anfitriao"
+         src="https://static.wikia.nocookie.net/ordemparanormal/images/b/b2/Miniatura_O_Anfitri%C3%A3o_em_Calamidade.png/revision/latest/scale-to-width-down/160?cb=20241229052340&path-prefix=pt-br"
+         alt="Anfitrião">
+
+    <p id="texto-anfitriao">
+        você agora é um amalgamado do anfitrião,<br>
+        nós somos o caos,<br>
+        tudo é o caos,<br>
+        e tudo deve pertencer a ele!
+    </p>
+
+<script>
+const form = document.getElementById("form-caos");
+const select = document.getElementById("personagem");
+const overlay = document.getElementById("overlay");
+const audio = document.getElementById("audio-anfitriao");
+const mensagem = document.getElementById("mensagem-final");
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    if (select.value === "anfitriao") {
+
+        // ativa bug no formulário intencionais
+        form.classList.add("form-bug");
+
+        // ativa glitch nas bordas
+        document.body.classList.add("glitch-bordas");
+
+        // espera o bug acontecer
+        setTimeout(() => {
+            overlay.style.display = "flex";
+            audio.play();
+        }, 1500);
+
+    } else {
+        form.style.display = "none";
+        mensagem.style.display = "block";
+        mensagem.innerText = "ótima escolha! nós sempre devemos seguir o caos!";
+    }
+});
+</script>
+
+<script>
+const texto = document.getElementById("texto-anfitriao");
+const simbolos = ["#", "∆", "Ψ", "λ", "Ω", "⧫", "▓"];
+const originalHTML = texto.innerHTML;
+
+function prepararTexto() {
+    texto.innerHTML = "";
+
+    originalHTML.split(/(<br\s*\/?>)/gi).forEach(parte => {
+        if (parte.toLowerCase().includes("br")) {
+            texto.appendChild(document.createElement("br"));
+        } else {
+            [...parte].forEach(char => {
+                const span = document.createElement("span");
+                span.innerText = char === " " ? "\u00A0" : char;
+                span.dataset.original = span.innerText;
+                texto.appendChild(span);
+            });
+        }
+    });
+}
+
+prepararTexto();
+
+setInterval(() => {
+    const letras = texto.querySelectorAll("span");
+
+    letras.forEach(span => {
+        if (Math.random() < 0.12) { // Mais letras ao mesmo tempo
+            const original = span.dataset.original;
+
+            span.innerText = simbolos[Math.floor(Math.random() * simbolos.length)];
+            span.style.color = "#b388ff";
+            span.style.textShadow = "0 0 8px #a855f7";
+
+            setTimeout(() => {
+                span.innerText = original;
+                span.style.color = "";
+                span.style.textShadow = "";
+             }, 90); 
+        }
+    });
+}, 280);
+</script>
+
+
+<script>
+
+const grimorioSimbolos = ["#", "∆", "Ψ", "λ", "Ω", "⧫", "▓"];
+
+const grimorioPaginas = [
+  {titulo:"Ritual de Bênção Maldita", imagem:"https://static.wikia.nocookie.net/ordemparanormal/images/0/0c/S%C3%ADmbolo_B%C3%AAn%C3%A7%C3%A3o_Maldita.png/revision/latest/scale-to-width-down/100?cb=20211126133158&path-prefix=pt-br", textoFinal:"Um ritual utilizado pela primeira vez por Erin Parker durante os acontecimentos do episódio 7 , extraído de um tablet amaldiçoado encontrado sobre um pedestal no centro de um Ritual de Transcender durante um dos enigmas da Produção do Anfitrião , [ 20 ] e posteriormente utilizado por Gal durante a batalha contra os agentes no Orfanato Santa Menefreda , em sua perícia de ataque com espadas. [ 21 ] Quando o ritual é realizado, o jogador irá rolar um D20 cinco vezes. Estes serão os resultados dos próximos cinco testes da perícia que o indivíduo escolher, como se fosse uma previsão do futuro."},
+  {titulo:"Ritual de Terceiro Olho", imagem:"https://static.wikia.nocookie.net/ordemparanormal/images/a/a7/S%C3%ADmbolo_Terceiro_Olho.png/revision/latest?cb=20221023175407&path-prefix=pt-br", textoFinal:"Ritual utilizado por Dante usado para detectar atividades paranormais em áreas específicas. Ele foi usado pela primeira vez no lado de fora do Orfanato Santa Menefreda para observar qual área tinha a maior atividade ocultista,[6] e pela segunda vez durante a luta contra Nina para tentar encontrar um objeto amaldiçoado[7] sendo utilizado novamente antes de entrarem na Mansão Endiabrada."},
+  {titulo:"Ritual de Teletransporte", imagem:"https://static.wikia.nocookie.net/ordemparanormal/images/4/4f/S%C3%ADmbolo_Teletransporte.png/revision/latest?cb=20221109023311&path-prefix=pt-br", textoFinal:"Ao reencontrar Beatrice Portinari, Clara se assusta com a aproximação rápida de sua filha, com um sorriso triste ela aperta um objeto em suas mãos, começa a emitir do núcleo de seu corpo um forte brilho e desaparece, deixando apenas uma marca no chão e faíscas roxas e azuis pairando pelo ar.[13] Algo parecido ocorre após o enigma da biblioteca, depois de Anthony Scelto entregar 2 papéis para a equipe."},
+  {titulo:"Ritual de Eletrocussão", imagem:"https://static.wikia.nocookie.net/ordemparanormal/images/5/5b/S%C3%ADmbolo_Eletrocuss%C3%A3o.png/revision/latest?cb=20221020232111&path-prefix=pt-br", textoFinal:"Esse ritual consiste em produzir energia próxima a você e fazer o alvo começar a ser eletrocutado de dentro pra fora. Visto pela primeira vez no Episódio 7 de Desconjuração, sendo usado pelo Diretor da Produção, tendo Rubens como alvo."},
+  {titulo:"Ritual de Dissipar Espíritos", imagem:"https://static.wikia.nocookie.net/ordemparanormal/images/f/f8/S%C3%ADmbolo_Dissipar_Esp%C3%ADritos.png/revision/latest?cb=20211126133338&path-prefix=pt-br", textoFinal:"Segurando seu celular em uma mão e com a corrente enrolada em seu outro braço, Kaiser fecha os olhos, levanta uma mão com a palma pra cima, ele abre seus olhos que estão brilhando em roxo e abaixa sua mão enquanto diz (Acácia) e várias flores roxas aparecem caindo sobre seu alvo que começa a se contorcer e fica paralisado. Ao utilizar esse ritual, o usuário causará um grande dano em entidades formadas pelo elemento Energia. Caso o alvo não for composto por esse elemento, o ritual ainda funcionará, mas com menor eficácia."},
+  {titulo:"Ritual de Cinerária", imagem:"https://static.wikia.nocookie.net/ordemparanormal/images/e/e0/S%C3%ADmbolo_Invocar_N%C3%A9voa.png/revision/latest?cb=20211126133331&path-prefix=pt-br", textoFinal:"Após desenhar o Símbolo nas costas de uma de suas polaroides, Kaiser acende um cigarro e sussurra (Cineraria) e uma névoa começa a sair entre seus dentes ocupando uma área de 5 metros ao seu redor.[25] Para a realização desse ritual basta se concentrar em seu símbolo e ao redor do usuário surgirá a névoa do Outro Lado em um raio de 5 metros fortalecendo outros rituais realizados dentro desse raio. Quanto mais predominante a neblina se revelar, mais danificada a membrana estará nesse local."},
+  {titulo:"Ritual de Reação", imagem:"https://static.wikia.nocookie.net/ordemparanormal/images/9/93/S%C3%ADmbolo_Rea%C3%A7%C3%A3o.png/revision/latest?cb=20211126133513&path-prefix=pt-br", textoFinal:"Esse ritual defensivo consiste em uma reação ao ser machucado, assim refletindo metade dos danos ao seu agressor em forma de energia caótica, enquanto a outra metade afeta a mente de seu usuário ao invés do corpo. Para a realização desse ritual o usuário deve segurar um aparelho eletrônico enquanto é atacado e se concentrar em seu símbolo."},
+  {titulo:"Ritual de Ouvir os Sussurros", imagem:"https://static.wikia.nocookie.net/ordemparanormal/images/5/5d/S%C3%ADmbolo_Comunica%C3%A7%C3%A3o_com_Esp%C3%ADritos.png/revision/latest?cb=20211126133045&path-prefix=pt-br", textoFinal:"Ao utilizar esse ritual, o usuário ganha a habilidade de se comunicar com aqueles que já morreram. O símbolo desse ritual aparece marcado no primeiro andar dos dormitórios do Orfanato Santa Menefreda e é utilizado por Dante para se comunicar com o espírito de Nina.[29] Sua segunda aparição é no episódio 13 onde Eduarda Flom se comunica com os fantasmas de crianças existidas da casa."},
+  {titulo:"Ritual de Amaldiçoar Tecnologia", imagem:"https://static.wikia.nocookie.net/ordemparanormal/images/e/e7/S%C3%ADmbolo_Amaldi%C3%A7oar_Tecnologia.png/revision/latest?cb=20211126133651&path-prefix=pt-br", textoFinal:"Ao segurar seu celular, estar próximo a uma fonte de energia e falar (Rebirth), raios verdes saem da fonte e sobem pelo corpo de Arthur Cervero deixando seus olhos verdes e ao tocar uma arma de fogo ela se torna amaldiçoada com caveiras que se movem pela arma. Para a realização desse ritual é necessário uma fonte de energia próxima e se concentrar no Símbolo assim permitindo seu usuário amaldiçoar temporariamente uma arma próxima de você fazendo com que ela cause dano caótico aos seus alvos."},
+  {titulo:"Ritual de Coincidência Forçada", imagem:"https://static.wikia.nocookie.net/ordemparanormal/images/8/8f/S%C3%ADmbolo_Coincid%C3%AAncia_For%C3%A7ada.png/revision/latest?cb=20220815012920&path-prefix=pt-br", textoFinal:"Segurando seu celular em uma mão, Joui olha para o símbolo em uma polaroide e fala (Rodolfo me dê sua força) e pequenos raios de energia começam a emanar de seu corpo. Para a realização desse ritual é necessário uma fonte de energia próxima e se concentrar no Símbolo, assim facilitando com que seu usuário possa bloquear e contra-atacar golpes físicos com maior facilidade temporariamente"},
+];
+
+let grimorioIndice = 0;
+
+function grimorioRenderizar(){
+  document.querySelectorAll(".grimorio-pagina").forEach((pagina, i)=>{
+    const dados = grimorioPaginas[grimorioIndice + i];
+    if(!dados){
+      pagina.style.visibility="hidden";
+      return;
+    }
+
+    pagina.style.visibility="visible";
+
+    const imagemGrimorio = pagina.querySelector(".grimorio-imagem");
+    const tituloGrimorio = pagina.querySelector(".grimorio-titulo");
+    const botaoGrimorio = pagina.querySelector(".grimorio-botao");
+    const textoGrimorio = pagina.querySelector(".grimorio-texto");
+
+    // RESETA ESTADO DA PÁGINA
+    imagemGrimorio.style.display = "block";
+    tituloGrimorio.style.display = "block";
+    botaoGrimorio.style.display = "block";
+
+    textoGrimorio.classList.add("oculto");
+    textoGrimorio.innerText = "";
+
+    // CONTEÚDO
+    imagemGrimorio.src = dados.imagem;
+    tituloGrimorio.innerText = dados.titulo;
+  });
+}
+document.querySelectorAll(".grimorio-botao").forEach((botao, i)=>{
+  botao.addEventListener("click", ()=>{
+    const pagina = botao.closest(".grimorio-pagina");
+    const texto = pagina.querySelector(".grimorio-texto");
+    botao.style.display="none";
+    pagina.querySelector(".grimorio-imagem").style.display="none";
+    pagina.querySelector(".grimorio-titulo").style.display="none";
+
+    let tempo = 0;
+    const glitch = setInterval(()=>{
+      texto.classList.remove("oculto");
+      texto.innerText = grimorioSimbolos[Math.floor(Math.random()*grimorioSimbolos.length)].repeat(12);
+      tempo++;
+      if(tempo>15){
+        clearInterval(glitch);
+        texto.innerText = grimorioPaginas[grimorioIndice + i].textoFinal;
+      }
+    },80);
+  });
+});
+
+document.querySelector(".grimorio-nav.direita").onclick=()=>{
+  if(grimorioIndice<8){grimorioIndice+=2;grimorioRenderizar();}
+};
+document.querySelector(".grimorio-nav.esquerda").onclick=()=>{
+  if(grimorioIndice>0){grimorioIndice-=2;grimorioRenderizar();}
+};
+
+grimorioRenderizar();
+
+document.querySelector(".grimorio-nav.direita").onclick=()=>{
+  if(grimorioIndice<8){grimorioIndice+=2;grimorioRenderizar();}
+};
+document.querySelector(".grimorio-nav.esquerda").onclick=()=>{
+  if(grimorioIndice>0){grimorioIndice-=2;grimorioRenderizar();}
+};
+
+grimorioRenderizar();
+</script>
+     
+    </div>
+     
+        <a id="fim" href="#topo" class="link-roxo">Voltar ao topo</a>
+         <br />
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Your Website 2023</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
+                </div>
+            </div>
+        </footer>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+          <div class="cursor-glitch" id="cursorGlitch"></div>
+           <script>
+        const cursor = document.getElementById("cursorGlitch");
+        const anfitriao = document.querySelector(".card-destaque");
+
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.top = e.clientY + "px";
+            cursor.style.left = e.clientX + "px";
+        });
+
+        anfitriao.addEventListener("mouseenter", () => {
+            cursor.style.display = "block";
+            document.body.style.cursor = "none";
+        });
+
+        anfitriao.addEventListener("mouseleave", () => {
+            cursor.style.display = "none";
+            document.body.style.cursor = "default";
+        });
+        </script>
+    </body>
+</html>

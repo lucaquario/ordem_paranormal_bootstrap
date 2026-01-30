@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content />
+        <meta name="author" content />
+        <title>Ordem Paranormal - Elementos</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sekuya&display=swap" rel="stylesheet">
+        <style>
+            body {
+                margin: 0;
+                height: 100vh;
+                background: black;
+            }
+
+            .background {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to bottom, transparent 70%, rgba(255, 255, 0, 0.6));
+                z-index: -1;
+                opacity: 0;
+                 transition: opacity 3s ease-in;
+            }
+            h1{
+                color:rgba(235, 235, 80, 0.877);
+                font-family: "Sekuya", system-ui;
+                
+            }
+            .painel {
+                min-height: 100vh;
+                width: 70%;
+                margin: 0 auto;
+                background: rgba(24, 24, 24, 0.75);
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                box-shadow: 0 0 40px rgba(207, 224, 53, 0.418);
+                flex-direction: column;
+                box-sizing: border-box;
+                padding-bottom: 20px;
+            }
+            .topo { 
+                display: flex; 
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                margin-bottom: 15px;
+                background-color: rgb(0, 0, 0);
+                width: 100%;
+            }
+            .topo h1 { 
+                font-size: 28px; margin: 0;
+                margin-bottom: 20px;
+            }
+            .abaixo p{
+                color:rgb(230, 236, 177);
+                margin: 0 auto;
+                text-align: center;
+                font-style: italic;
+                margin-bottom: 30px;
+            }
+            .imagem-texto {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 15px;
+            }
+            .imagem-texto img {
+                max-width: 200px;
+                height: auto;
+                margin-right: 20px;
+            }
+            .imagem-texto p {
+                font-size: 16px;
+                margin: 0;
+                color: antiquewhite;
+            }
+            .imagem-conhecimento img {
+                display: flex;
+                width: 545px;
+                margin: 0 auto;
+                align-items: center;
+                padding: 36px;
+            }
+            .personagens {
+                position: relative;
+                width: 400px;   /* largura visível do painel */
+                height: 120px;  /* altura visível */
+                overflow: hidden;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+                background: #0a0a0a;
+                display: flex;
+                margin: 0 auto;
+                box-shadow: 0 0 30px #bac70957;
+            }
+            .titulo-personagens {
+                margin-top: 40px;
+                margin-bottom: 15px;
+                text-align: center;
+                font-size: 24px;
+                color: rgba(235, 235, 80, 0.9);
+                font-family: "Sekuya", system-ui;
+                text-shadow: 0 0 10px rgba(235, 235, 80, 0.4);
+                background-color: black;
+                width:100%;
+                padding: 30px;
+            }
+            .descricao-personagens {
+                font-size: 14px;
+                font-style: italic;
+                color: rgb(230, 236, 177);
+                margin: 0 auto;
+                background-color: black;
+                width: 100%;
+                padding: 8px;
+            }
+            .personagens-images {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+                padding-bottom: 30px;
+            }
+
+           .personagens-images a {
+                min-width: 100px;   
+                height: 100px;      
+                margin: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .personagens-images img {
+                width: 100px;
+                height: 100px;
+                object-fit: cover;  
+                border-radius: 8px;
+                cursor: pointer;
+                transition: transform 0.2s;
+            }
+            .personagens-images img:hover {
+                transform: scale(1.1);
+            }
+
+            .btn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(0,0,0,0.5);
+                color: white;
+                border: none;
+                padding: 8px;
+                cursor: pointer;
+                font-size: 18px;
+                border-radius: 50%;
+            }
+            .btn:hover {
+                background: rgba(0,0,0,0.8);
+            }
+
+            .prev {
+                left: 5px;
+            }
+
+            .next {
+                right: 5px;
+            }
+            .titulo-rituais {
+                font-size: 28px;
+                color: rgba(235, 235, 80, 0.877);
+                font-family: "Sekuya", system-ui;
+                background-color: black;
+                width: 100%;
+                text-align: center;
+                margin-top: 30px;
+                padding: 20px;
+            }
+            .ritual-bloco {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .ritual-nome {
+                color: rgba(255, 255, 255, 0.9);
+                font-size: 18px;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+
+            .ritual-texto {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 15px;
+            }
+            .ritual-texto img {
+                max-width: 200px;
+                height: auto;
+                margin-right: 20px;
+            }
+            .ritual-texto p {
+                font-size: 16px;
+                margin: 0;
+                color: antiquewhite;
+            }
+            .linha-divisoria {
+                width: 80%;
+                height: 1px;
+                background: rgba(235, 235, 80, 0.4);
+                margin: 30px auto;
+            }
+            .ritual-texto.invertido {
+                flex-direction: row-reverse;
+            }
+            .ritual-texto.invertido img {
+                margin-right: 0;
+                margin-left: 20px;
+            }
+            .content {
+                display: flex;
+                align-items: flex-start;
+                gap: 30px;
+            }
+            .formulario-lateral {
+                width: 260px;
+                background: rgba(10, 10, 10, 0.9);
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 20px rgba(235, 235, 80, 0.3);
+                color: antiquewhite;
+                font-family: system-ui;
+            }
+
+            .formulario-lateral h2 {
+                color: rgba(235, 235, 80, 0.9);
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .formulario-lateral label {
+                display: block;
+                margin-bottom: 5px;
+                font-size: 14px;
+            }
+
+            .formulario-lateral input,
+            .formulario-lateral select {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 15px;
+                border-radius: 5px;
+                border: none;
+                background: #111;
+                color: antiquewhite;
+            }
+
+            .formulario-lateral input:focus,
+            .formulario-lateral select:focus {
+                outline: 1px solid rgba(235, 235, 80, 0.6);
+            }
+
+            .formulario-lateral button {
+                width: 100%;
+                padding: 10px;
+                background: rgba(235, 235, 80, 0.85);
+                border: none;
+                border-radius: 5px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            .formulario-lateral button:hover {
+                background: rgba(235, 235, 80, 1);
+            }
+        </style>
+    </head>
+    <body class="d-flex flex-column">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.html">Sobre Ordem Paranormal</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Informações</a></li>
+                            <li class="nav-item"><a class="nav-link" href="about.html">Sangue</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.html">Conhecimento</a></li>
+                            <li class="nav-item"><a class="nav-link" href="pricing.html">Energia</a></li>
+                            <li class="nav-item"><a class="nav-link" href="faq.html">Morte</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Page content-->
+            <section class="py-5">
+                <div class="container px-5">
+                  <div class="background"></div>
+                  <div class="content">
+                        <div class="formulario-lateral">
+                            <h2>Conhecer Ritual</h2>
+                            <form onsubmit="enviarFormulario(event)">
+                                <label for="nome">Nome</label>
+                                <input type="text" id="nome" name="nome" required>
+
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+
+                                <label for="senha">Senha</label>
+                                <input type="password" id="senha" name="senha" required>
+
+                                <label for="ritual">Ritual</label>
+                                <select id="ritual" name="ritual" required>
+                                    <option value="">Selecione um ritual</option>
+                                    <option value="transcender">Transcender</option>
+                                    <option value="ritual2">Passagem de conhecimento</option>
+                                    <option value="ritual3">Alterar Memoria</option>
+                                </select>
+                                <button type="submit">Enviar</button>
+                            </form>
+                            <script>
+                                function enviarFormulario(event) {
+                                    event.preventDefault(); 
+
+                                    alert("Formulário enviado!");
+
+                                    event.target.reset();
+                                }
+                            </script>
+                        </div>
+                       <div class="painel">
+                            <div class="topo">
+                                <h1>CONHECIMENTO</h1>
+                            </div>
+                            <div class="abaixo">
+                                <p>"Saber tudo, é perder tudo."</p>
+                                <div class="imagem-texto">
+                                    <img src="https://static.wikia.nocookie.net/ordemparanormal/images/2/20/Conhecimento.png/revision/latest?cb=20211227034840&amp;path-prefix=pt-br" alt="Simbolo de conhecimento">
+                                    <p>O conhecimento é um dos elementos de Ordem Paranormal, caracterizado por decifrar, entender e manipular informaçoes ocultas do universo paranormal.
+                                        O comportamento da Entidade de Conhecimento parece estar conectado diretamente com a ideia de descobrir, lembrar, aprender e registrar informações.
+                                        Acontecimentos que foram uma grande fonte de Medo, registrados em textos, palavras ou até Sigilos, 
+                                        agradam e fortalecem a entidade do Conhecimento.
+                                    </p>
+                                </div>
+                                <div class="linha-divisoria"></div>
+                                <div class="imagem-conhecimento"> 
+                                    <img src="https://static.wikia.nocookie.net/ordemparanormal/images/b/bf/Altera%C3%A7%C3%B5es_de_Conhecimento_em_Sobrevivendo_ao_Horror.png/revision/latest?cb=20240710233242&amp;path-prefix=pt-br" alt="Alteraçoes-do-conhecimento">
+                                </div>
+                                <h1 class="titulo-personagens">Personagens de Conhecimento</h1>
+                                <p class="descricao-personagens">Ao clicar em qualquer um dos personagens exibidos abaixo o usuário será redirecionado à uma pagina informativa do que for escolhido, da Fandom Wiki de Ordem Paranormal.</p>
+                                <div class="personagens">
+                                    <div class="personagens-images" id="personagens">
+                                        <a href="https://ordemparanormal.fandom.com/wiki/Dante" target="_blank">
+                                            <img src="https://static.wikia.nocookie.net/ordemparanormal/images/3/38/Miniatura_Dante_em_Desconjura%C3%A7%C3%A3o.png/revision/latest/scale-to-width-down/200?cb=20211212051810&amp;path-prefix=pt-br" alt="Dante">
+                                        </a>
+                                        <a href="https://ordemparanormal.fandom.com/wiki/Carina" target="_blank">
+                                            <img src="https://static.wikia.nocookie.net/ordemparanormal/images/7/7f/Miniatura_Carina_em_Calamidade.png/revision/latest/scale-to-width-down/200?cb=20241229054212&amp;path-prefix=pt-br" alt="Carina">
+                                        </a>
+                                        <a href="https://ordemparanormal.fandom.com/wiki/Dara" target="_blank">
+                                            <img src="https://static.wikia.nocookie.net/ordemparanormal/images/a/a1/Miniatura_Dara_em_Sinais_do_Outro_Lado.png/revision/latest?cb=20221105230545&amp;path-prefix=pt-br"  alt="Dara">
+                                        </a>
+                                        <a href="https://ordemparanormal.fandom.com/wiki/Kian" target="_blank">
+                                            <img src="https://static.wikia.nocookie.net/ordemparanormal/images/2/21/Miniatura_Kian_em_Calamidade.png/revision/latest/scale-to-width-down/240?cb=20211026045610&amp;path-prefix=pt-br" alt="Kian">
+                                        </a>
+                                        <a href="https://ordemparanormal.fandom.com/wiki/Gal" target="_blank">
+                                            <img src="https://static.wikia.nocookie.net/ordemparanormal/images/4/49/Miniatura_Gal_em_Calamidade.png/revision/latest?cb=20210919033041&amp;path-prefix=pt-br"  alt="Gal Sal">
+                                        </a>
+                                    </div>
+                                    <button class="btn prev" onclick="moveSlide(-1)">&#10094;</button>
+                                    <button class="btn next" onclick="moveSlide(1)">&#10095;</button>
+                                </div>
+                                <script>
+                                    let index = 0;
+                                    const personagens = document.getElementById("personagens");
+                                    const total = personagens.children.length;
+                                    const itemWidth = 120;
+
+                                    function moveSlide(direction) {
+                                        index += direction;
+                                        if (index < 0) index = total - 3;
+                                        if (index > total - 3) index = 0;
+                                        personagens.style.transform = `translateX(${-index * itemWidth}px)`;
+                                    }
+                                </script>
+                           </div>
+                           <h1 class="titulo-rituais">RITUAIS</h1>
+                           <div class="ritual-texto">
+                                <div class="ritual-bloco">
+                                    <h2 class="ritual-nome">Transcender</h2>
+                                    <img src="https://static.wikia.nocookie.net/ordemparanormal/images/e/e1/S%C3%ADmbolo_Transcender.png/revision/latest/scale-to-width-down/1000?cb=20211126132742&path-prefix=pt-br" alt="Simbolo ritual de transcender">
+                                </div>
+                                <p>O primeiro ritual alguma vez criado, inventado pelo próprio Kian há aproximadamente 4000 anos. 
+                                    Para a realização desse ritual, basta ficar sobre o símbolo e se concentrar nele carregando, ou não, 
+                                    um objeto amaldiçoado. Esse ritual é utilizado por todos os Ocultistas para se fortalecerem e 
+                                    aprenderem outros rituais ao se conectarem com o Outro Lado, compreendendo tudo e esquecendo a maior parte logo após o fim do ritual.</p>
+                           </div>
+                           <div class="linha-divisoria"></div>
+                           <div class="ritual-texto invertido">
+                                <div class="ritual-bloco">
+                                    <h2 class="ritual-nome">Passagem de Conhecimento</h2>
+                                    <img src="https://static.wikia.nocookie.net/ordemparanormal/images/9/90/S%C3%ADmbolo_Passagem_de_Conhecimento.png/revision/latest/scale-to-width-down/1000?cb=20211126133526&path-prefix=pt-br" alt="Simbolo Ritual Passagem de Conhecimento.">
+                                </div>
+                                <p>Um ritual ocultista envolvendo duas pessoas ou mais, cujos resultados podem ser variados. 
+                                    Um dos resultados é que um mesmo corpo pode ser ocupado paranormalmente por mais que uma mente em tempos alternados. 
+                                    Porém, em certas circunstâncias, esse ritual pode fazer com que duas pessoas troquem de corpo completamente. 
+                                    Por fim, há relatos de "Substituição", quando uma mente se sobrepõe em outra já existente.</p>
+                           </div> 
+                           <div class="linha-divisoria"></div>
+                           <div class="ritual-texto">
+                                <div class="ritual-bloco">
+                                    <h2 class="ritual-nome">Alterar Memoria</h2>
+                                    <img src="https://static.wikia.nocookie.net/ordemparanormal/images/8/8e/S%C3%ADmbolo_Alterar_Mem%C3%B3ria.png/revision/latest/scale-to-width-down/1000?cb=20221020231851&path-prefix=pt-br" alt="Simbolo Ritual Alterar Memoria">
+                                </div>
+                                <p>O Ritual de Alterar Memória, também conhecido por Kaiser como "Ritual de Deletamento de Memória", 
+                                    é um dos principais rituais presentes em todo o RPG, sendo peça chave tanto em A Ordem Paranormal para Alexsander Kothe, 
+                                    quanto em Ordem Paranormal: Desconjuração para Beatrice Portinari. Ele foi utilizado pela primeira vez por Álvaro Augusto 
+                                    com o auxílio de outros dois professores no bunker da Escola Nostradamus de Ensino Médio em Alexsander Kothe, 
+                                    após Alex se recusar a participar das atrocidades realizadas por eles naquele local.</p>
+                           </div>
+                <script>
+                    window.addEventListener("load", function() {
+                    document.querySelector(".background").style.opacity = "1";
+                    });
+                </script>
+            </section>
+        </main>
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Your Website 2023</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>

@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+ <html lang="pt-BR">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Ordem Paranormal - Elementos</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    <title>ELEMENTO DE SANGUE</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background-image: url(https://getwallpapers.com/wallpaper/full/9/2/0/1329002-full-size-blood-red-wallpaper-1920x1200-for-4k.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Copperplate, Papyrus, fantasy;
+            color: #ff0000;
+            transform: none !important;
+        }
+
+        .painel {
+            min-height: 100vh;
+            width: 65%;
+            margin: 0 auto;
+            background: rgba(56, 0, 0, 0.75);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 30px;
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.6);
+        }
+
+        .topo {
+            max-width: 600px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .topo h1 {
+            font-size: 2.3em;
+            margin-bottom: 15px;
+            color: #ff0000;
+            text-shadow: 0 0 15px rgba(80, 0, 0, 0.8);
+        }
+
+        .topo p {
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        /* Imagem do símbolo */
+        .topo img {
+            max-width: 140px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 15px rgba(107, 0, 14, 0.8));
+        }
+
+        .container {
+            max-width: 500px;
+            text-align: center;
+            padding: 30px;
+            border: 2px solid #ff2c2c;
+            border-radius: 12px;
+            background: rgba(90, 0, 0, 0.6);
+            box-shadow: 0 0 25px rgba(255, 80, 80, 0.6);
+        }
+
+        .rituais {
+            max-width: 200px;
+            text-align: center;
+            padding: 30px;
+            border: 2px solid #2b0000;
+            border-radius: 12px;
+            background: rgba(160, 0, 0, 0.6);
+            box-shadow: 0 0 12px rgb(180, 0, 0);
+        }
+         .bestiario {
+            max-width: 200px;
+            text-align: center;
+            padding: 30px;
+            border: 2px solid #2b0000;
+            border-radius: 12px;
+            background: rgba(160, 0, 0, 0.6);
+            box-shadow: 0 0 25px rgb(180, 0, 0);
+        }
+
+        .container h2 {
+            font-size: 1.7em;
+            margin-bottom: 15px;
+            color: #ff0000;
+        }
+
+        .container p {
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        /* Imagem da manifestação */
+        .container img {
+            max-width: 100%;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(129, 24, 24, 0.6);
+        }
+
+        .sangue {
+            margin-top: 20px;
+            font-size: 0.8em;
+            letter-spacing: 2px;
+            color: #ff0000;
+            text-transform: uppercase;
+            opacity: 0.85;
+        }
+
+        .carousel-rituais {
+  width: 900px;
+  overflow: hidden;
+  margin: 40px auto;
+}
+
+.carousel-track {
+  display: flex;
+  width: 3600px; /* 900px x 4 slides */
+  animation: slideRituais 16s infinite;
+}
+
+.bestiario-track {
+  display: flex;
+  width: 3600px; /* 900px x 4 slides */
+  animation: slideRituais 16s infinite;
+}
+
+
+.carousel-slide {
+  width: 900px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.grimorio {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+
+@keyframes slideRituais {
+  0%   { transform: translateX(0); }
+  20%  { transform: translateX(0); }
+
+  30%  { transform: translateX(-900px); }
+  45%  { transform: translateX(-900px); }
+
+  55%  { transform: translateX(-1800px); }
+  70%  { transform: translateX(-1800px); }
+
+  80%  { transform: translateX(-2700px); }
+  100% { transform: translateX(-2700px); }
+}
+    .gridview {
+        display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 5px;
+  gap: 5px;
+          
+    }
+       .formulario-lateral {
+        background-color: #0a0a0a;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(235, 80, 80, 0.4);
+        width: 300px;
+      }
+      .formulario-lateral h2 {
+        color: rgba(255, 0, 0, 0.877);
+        text-align: center;
+      }
+      .formulario-lateral label {
+        display: block;
+        margin-top: 15px;
+        color: antiquewhite;
+      }
+      .formulario-lateral input,
+      .formulario-lateral select {
+        width: calc(100% - 16px);
+        padding: 8px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: none;
+      }
+      .formulario-lateral button {
+        width: calc(100% - 16px);
+        padding: 10px;
+        margin-top: 20px;
+        background-color: rgba(196, 0, 0, 0.877);
+        color: black;
+        border-radius: 5px;
+        border: none;
+      }
+
+      @media (max-width: 920px) {
+  .carousel-rituais {
+    width: 100%;
+  }
+
+  .carousel-slide {
+    width: 100vw;
+  }
+
+  .carousel-track {
+    width: calc(100vw * 4);
+  }
+
+  .bestiario-track {
+    width: calc(100vw * 4);
+  }
+}
+    </style>
+</head>
+<body>
+  <body class="d-flex flex-column">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.html">Sobre Ordem Paranormal</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Informações</a></li>
+                            <li class="nav-item"><a class="nav-link" href="about.html">Sangue</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.html">Conhecimento</a></li>
+                            <li class="nav-item"><a class="nav-link" href="pricing.html">Energia</a></li>
+                            <li class="nav-item"><a class="nav-link" href="faq.html">Morte</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+    <div class="painel">
+        <h3 style="color: white; text-shadow: 2px 2px black;">
+            "O Fluxo que banha o Outro Lado"
+        </h3>
+        <div class="topo">
+            <h1 style="font-family: Copperplate, Papyrus, fantasy;">SANGUE</h1>
+
+            <!-- IMAGEM AGORA ACIMA DO TEXTO -->
+            <img src="https://static.wikia.nocookie.net/ordemparanormal/images/c/cc/Sangue.png/revision/latest/scale-to-width-down/1000?cb=20221031204745&path-prefix=pt-br"
+                alt="Símbolo da Sangue">
+
+            <p>
+                O Sangue é a entidade do sentimento. Ele busca a intensidade:
+                dor, obsessão, paixão, amor, fome, ódio -
+                tudo que envolve sentir uma emoção extrema
+                agrada a entidade de Sangue.
+            </p>
+        </div>
+        <div class="container">
+            <p>
+                Possuir uma afinidade com o elemento do Sangue significa ser escolhido pela sua Entidade. Quanto maior a afinidade de um ocultista com a Entidade de Sangue, 
+                maior sua proximidade de uma criatura bestial. Dentre as outras várias consequências disso, é possível citar:
+                 Sentidos aguçados, maior sensibilidade à dor, veias saltadas, olhos vermelhos, dentes e unhas afiadas, e diversas alterações
+                  na estrutura corporal, além de uma personalidade mais sentimental, agressiva e impulsiva.
+            </p>
+            <img src="https://static.wikia.nocookie.net/ordemparanormal/images/4/45/Altera%C3%A7%C3%B5es_de_Sangue_em_Sobrevivendo_ao_Horror.png/revision/latest?cb=20240710233416&path-prefix=pt-br"
+            alt="alteração de sangue">
+          <p style="color: white; text-shadow: 2px 2px black;">Usuários famosos de Sangue: Arthur Cervero, Juan e Agatha Volkomenn</p>
+        </div>
+      <div style="color: white; text-shadow: 2px 2px black; text-align:center">
+      <h2>RITUAIS</h2>
+            <p>Os rituais de Sangue sempre estão associados a alterações físicas e agressivas, com resultados nojentos e brutais.
+                 Alguns requisitos para conjurar rituais de Sangue realçam a ideia de sentir dor,
+                 sendo eles auto mutilação, derramamento de sangue e uso de órgãos humanos ou animais.</p>
+      </div>
+      <div class="carousel-rituais" style="color: white; text-shadow: 2px 2px black; text-align:center">
+        <div class="carousel-track rituais-track">
+      
+          <!-- SLIDE 1 -->
+          <div class="carousel-slide">
+            <div class="grimorio">
+              <div class="rituais"><h2>Descarnar</h2>
+                <p>Utilizando do próprio sangue como arma, se cortando e o derramando em algumas páginas 
+                    especificas de um livro que carregava, logo depois encarando fixamente a pessoa que queria afetar. 
+                    Depois de encarar o alvo, a carne da vítima começava a queimar e se despedaçar rapidamente de forma dolorosa.</p>
+                  <img src="https://static.wikia.nocookie.net/ordemparanormal/images/2/25/S%C3%ADmbolo_Descarnar.png/revision/latest/scale-to-width-down/1000?cb=20211126134738&path-prefix=pt-br" style="width: 140px;">
+            </div>
+              <div class="rituais"><h2>Derreter Criaturas de Sangue</h2>
+                <p>Ao segurar uma corrente escorrendo sangue e se concentrar no símbolo,
+                  o sangue de uma criatura começa a ferver causando mais impacto em criaturas compostas
+                  pelo elemento Sangue, caso ela não seja desse elemento o ritual ainda funciona mas com
+                  menos efetividade. Esse ritual funciona exclusivamente em criaturas, não podendo ser usado em humanos.</p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/1/12/S%C3%ADmbolo_Derreter_Criaturas_De_Sangue.png/revision/latest/scale-to-width-down/1000?cb=20211126134634&path-prefix=pt-br" style="width: 140px;">
+             </div>
+              <div class="rituais"><h2>Fortalecimento Sensorial</h2>
+                <p>Este ritual de Sangue aguça as sensações do usuário, o garantindo dados extras em diversos testes.
+                  O único conjurador conhecido desse ritual é Dante, que o utilizou antes da Equipe Abutres entrar na 
+                  base secreta dos Leone, quando ele corta suas mãos, suas veias saltam e seus olhos ficam com um aspecto 
+                  melhorado, nisso Dante tem seus sentidos melhorados durante um período de tempo.</p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/c/cd/S%C3%ADmbolo_Fortalecimento_Sensorial.png/revision/latest/scale-to-width-down/1000?cb=20221023152733&path-prefix=pt-br" style="width: 140px;">
+              </div>
+            </div>
+          </div>
+      
+          <!-- SLIDE 2 -->
+          <div class="carousel-slide">
+            <div class="grimorio">
+              <div class="rituais"><h2>Distorcer Aparência</h2>
+                <p>
+                    Permite que o conjurador se transforme ou transforme um aliado em outra pessoa. 
+                    Na tentativa de enganar Joui, Artemis se transforma em Patrizia Leone, em um processo 
+                    onde toda sua pele se desprende de seu corpo e por baixo surge uma nova pele idêntica a 
+                    Leone com acessórios e roupas que a mesma utilizava, porém ela acaba sendo descoberta por Joui.
+                </p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/2/29/S%C3%ADmbolo_Distorcer_Apar%C3%AAncia.png/revision/latest/scale-to-width-down/1000?cb=20221020232047&path-prefix=pt-br" style="width: 140px;">
+              </div>
+              <div class="rituais"> <h2>Armadura de Sangue</h2>
+                <p>
+                    Conjura uma armadura de Sangue a partir de uma poça que esteja próxima, protegendo o alvo ou o
+                     próprio usuário pelo resto da cena. Esse ritual foi visto em Calamidade sendo utilizado diversas 
+                     vezes por Damir, principalmente para defender seu irmão, Boris, chegando a utilizar o ritual para proteger
+                      Joui Jouki e Balu durante a batalha contra Kian.
+                </p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/6/6c/S%C3%ADmbolo_Armadura_de_Sangue.png/revision/latest/scale-to-width-down/1000?cb=20221022182139&path-prefix=pt-br" style="width: 140px;">
+                </div>
+              <div class="rituais"> <h2>Amaldiçoar Arma com Sangue</h2>
+                <p>
+                    Durante a batalha contra os Anfitriões, Balu finca a pantera da ponta do punho de seu machado no seu peito, 
+                    e o sangue da abertura vai para a lâmina do machado e o transforma em uma espécie de maça estrela, nomeada por 
+                    ele de "Machado Demônio".
+                </p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/e/e1/S%C3%ADmbolo_Armaldi%C3%A7oar_Arma_com_Sangue.png/revision/latest/scale-to-width-down/1000?cb=20221023014629&path-prefix=pt-br" style="width: 140px;">
+             </div>
+            </div>
+          </div>
+      
+          <!-- SLIDE 3 -->
+          <div class="carousel-slide">
+            <div class="grimorio">
+              <div class="rituais"> <h2>Ódio Incontrolável</h2>
+                <p>Durante a luta contra o Anfitrião, Arthur usou este ritual para melhorar as capacidades de Joui durante a luta,
+                    este ritual também é utilizado por Damir em si mesmo na luta contra Kian.</p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/0/08/S%C3%ADmbolo_%C3%93dio_Incontrol%C3%A1vel.png/revision/latest/scale-to-width-down/1000?cb=20211126134718&path-prefix=pt-br" style="width: 140px;">
+             </div>
+              <div class="rituais"><h2>Espelho</h2>
+                <p>Usando as informações privilegiadas que obteve sobre o Hexatombe, Giovanni traça sua
+                     estratégia para sobreviver até o último dia: usar um ritual para criar clones próprios dele,
+                      feitos de carne, e mandá-los no lugar dele pela área para não se expor.</p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/4/45/S%C3%ADmbolo_Ritual_Espelho.png/revision/latest/scale-to-width-down/1000?cb=20211126132844&path-prefix=pt-br" style="width: 140px;">
+              </div>
+              <div class="rituais"><h2>Infligir Doença</h2>
+                <p>Ritual de Morte e Sangue usado por Dante que invoca uma névoa negra a partir de um símbolo na mão, 
+                    causando uma doença rápida e extremamente violenta no alvo, que se deteriora fisicamente em poucos 
+                    segundos até quase se decompor por completo.</p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/9/93/S%C3%ADmbolo_Decad%C3%AAncia.png/revision/latest/scale-to-width-down/1000?cb=20211126133409&path-prefix=pt-br" style="width: 140px">
+            </div>
+            </div>
+          </div>
+      
+          <!-- SLIDE 4 -->
+          <div class="carousel-slide">
+            <div class="grimorio">
+              <div class="rituais"><h2>Teletransporte</h2>
+                <p>Ao reencontrar Beatrice Portinari, Clara se assusta com a aproximação rápida de sua filha, com um sorriso triste 
+                    ela aperta um objeto em suas mãos, começa a emitir do núcleo de seu corpo um forte brilho e desaparece, deixando apenas 
+                    uma marca no chão e faíscas roxas e azuis pairando pelo ar. Algo parecido ocorre após o enigma da biblioteca, depois de
+                    Anthony Scelto entregar 2 papéis para a equipe</p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/4/4f/S%C3%ADmbolo_Teletransporte.png/revision/latest/scale-to-width-down/1000?cb=20221109023311&path-prefix=pt-br" style="width: 140px">
+            </div>
+              <div class="rituais"><h2>Reação</h2>
+                <p>Esse ritual defensivo consiste em uma reação ao ser machucado, assim refletindo metade dos danos ao seu agressor em 
+                    forma de energia caótica, enquanto a outra metade afeta a mente de seu usuário ao invés do corpo. Para a realização 
+                    desse ritual o usuário deve segurar um aparelho eletrônico enquanto é atacado e se concentrar em seu símbolo</p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/9/93/S%C3%ADmbolo_Rea%C3%A7%C3%A3o.png/revision/latest/scale-to-width-down/1000?cb=20211126133513&path-prefix=pt-br" style="width: 140px">
+            </div>
+              <div class="rituais"><h2>Paralisia de Sangue</h2>
+                <p>Durante a luta contra Enpap-X, Arthur Cervero usa o ritual após marcar seu símbolo no monstro, fazendo com que Enpap fique paralisado, permitindo com que seja mais fácil lutar contra ele.</p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/e/e7/S%C3%ADmbolo_Paralisia_Anormal.png/revision/latest/scale-to-width-down/1000?cb=20211126133259&path-prefix=pt-br" style="width: 140px">
+            </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      <div>
+        <h2 style="text-shadow: 2px 2px black; text-align:center">Bestiário</h2>
+        <p style="color: white; text-shadow: 2px 2px black;">As criaturas de Sangue são bestiais, 
+          agressivas e nojentas, sendo em sua grande maioria cegas, porém com os outros sentidos 
+          extremamente aguçados, principalmente o tato. Essas entidades apresentam sempre uma cor 
+          avermelhada, e, em sua grande maioria, uma pele exposta, com garras e dentes afiados, juntamente 
+          de um líquido repugnante e espesso, similar, porém diferente, ao sangue humano.</p>
+      </div>
+      <div class="carousel-rituais">
+        <div class="carousel-track bestiario-track">
+      
+          <!-- SLIDE 1 -->
+          <div class="carousel-slide">
+            <div class="grimorio">
+              <div class="bestiario"><h2 style="text-shadow: 2px 2px black;">Zumbi de Sangue</h2>
+                <p style="color: white; text-shadow: 2px 2px black;">Os Zumbis de Sangue são criaturas paranormais de Sangue,
+                  originando-se de cadáveres que foram mortos brutalmente e deixados abandonados em uma área com a Membrana 
+                  enfraquecida. Eles servem como uma passagem para a entidade de Sangue devorá-los e tomar o controle de sua forma física.</p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/6/62/Bestial_em_Desconjura%C3%A7%C3%A3o.png/revision/latest/scale-to-width-down/1000?cb=20220208205142&path-prefix=pt-br" style="width: 180px;">
+              </div>
+              <div class="bestiario"><h2 style="text-shadow: 2px 2px black;">Titã de Sangue</h2>
+                <p style="color: white; text-shadow: 2px 2px black;">O Titã de Sangue é uma criatura paranormal de Sangue que se manifesta em locais 
+                    que houveram massacres e carnificinas, formada por diversos corpos mesclados em um, ou até mesmo a partir de uma pessoa com extrema
+                     Exposição paranormal. Essa variação possui uma forma muito maior e musculosa que os Zumbis de Sangue comuns, tendo uma variação dos 
+                     mesmos que se assemelha muito a essa criatura.</p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/a/ac/Miniatura_Patrizia_Leone_transformada_em_Zumbi_de_Sangue_Colossal.png/revision/latest?cb=20240829180134&path-prefix=pt-br" style="width: 180px;"></div>
+              <div class="bestiario"><h2 style="text-shadow: 2px 2px black;">Dama de Sangue</h2>
+                <p style="color: white; text-shadow: 2px 2px black;">A Dama de Sangue é uma criatura grotesca de Sangue, com complemento de Morte e Medo.
+        
+        Nascida de um corpo humano, com seus órgãos internos retorcidos e misturados com plantas;
+        
+         a Dama de Sangue é uma criatura extremamente letal, possuindo diversas habilidades
+        
+         paranormais que giram em torno de suas flores. A criatura surge a partir de um sacrifício humano hospedeiro, com sementes de orquídeas de sangue alojadas em sua coluna, em um Ritual de
+        
+         Sangue, assim, repartindo o corpo ao meio com a eclosão das sementes que consomem a carne de seu hospedeiro, se transformando na criatura.</p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/4/49/Arte_da_Dama_de_Sangue_em_Os_Espinhos_da_Aurora_Escarlate.png/revision/latest/scale-to-width-down/1000?cb=20251018203055&path-prefix=pt-br" style="width: 180px;">
+                  </div>
+            </div>
+          </div>
+      
+          <!-- SLIDE 2 -->
+          <div class="carousel-slide">
+            <div class="grimorio">
+              <div class="bestiario"><h2 style="text-shadow: 2px 2px black;">Enpap-X</h2>
+                <p style="color: white; text-shadow: 2px 2px black;">O Enpap-X é uma criatura paranormal de Sangue com complemento de Conhecimento,
+                    surgindo da dor e da tortura. Ele pode se manifestar quando uma pessoa é forçada a viver acorrentada e aprisionada, sendo exposta a
+                    diversos acontecimentos brutais e paranormais incessantemente, sem poder ter a sua vida encerrada durante o tormento.</p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/d/d2/Miniatura_Enpap-X_transformado_em_Desconjura%C3%A7%C3%A3o.png/revision/latest?cb=20211115194055&path-prefix=pt-br" style="width: 180px;">
+                     </div>
+              <div class="bestiario"><h2 style="text-shadow: 2px 2px black;">Minotauro</h2>
+                <p style="color: white; text-shadow: 2px 2px black;">O Minotauro é uma criatura paranormal de Sangue que habita labirintos, manifestada a 
+                    partir da figura mitológica grega do Minotauro. Essa criatura é uma das primeiras a ter sido presa numa espécie de cativeiro para ser estudada
+                     por investigadores paranormais. Porém, até hoje ninguém sabe quais os exatos motivos de alguém prender essa besta e mantê-la viva 
+                     em algum lugar.</p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/5/5a/Miniatura_Minotauro_em_Calamidade.png/revision/latest?cb=20241225054046&path-prefix=pt-br" style="width: 220px;">
+            </div>
+              <div class="bestiario"><h2 style="text-shadow: 2px 2px black;">O Carente</h2>
+                <p style="color: white; text-shadow: 2px 2px black;">A Criatura Carente, ou apenas O Carente, é uma criatura de Sangue com complemento de Morte,
+                     fruto do livro de Daniel Hartmann "Contos de uma Criatura Carente", sobre uma criatura que devora órgãos internos de mulheres que 
+                     foram mães graças à sua inveja de seres que recebem amor até mesmo antes de nascerem.</p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/9/99/Miniatura_Carente_em_Calamidade.png/revision/latest?cb=20220413213524&path-prefix=pt-br" style="width: 220px;">
+            </div>
+            </div>
+          </div>
+      
+          <!-- SLIDE 3 -->
+          <div class="carousel-slide">
+            <div class="grimorio">
+              <div class="bestiario"><h2 style="text-shadow: 2px 2px black;">O Derretido</h2>
+                <p style="color: white; text-shadow: 2px 2px black;">O Derretido é uma criatura asquerosa de Sangue com complemento de Energia, formada pelo medo de que algo repulsivo possa sair pelas tubulações do banheiro. Essa massa grotesca não possui uma forma fixa e não possui quaisquer sinal de empatia, apesar de ter o mínimo de consciência. Ela só preza por absorver, derreter e expandir tudo que fica em seu caminho.</p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/0/06/Arte_do_Derretido_em_Sobrevivendo_ao_Horror.png/revision/latest?cb=20241231041254&path-prefix=pt-br" style="width: 180px;">
+             </div>
+                <div class="bestiario"><h2 style="text-shadow: 2px 2px black;">Amigo Imaginário</h2>
+               <p style="color: white; text-shadow: 2px 2px black;">O Amigo Imaginário é uma criatura paranormal de Morte e Sangue com complemento de Medo, possuindo uma forte ligação com a Tinta paranormal que provém de um dos Sinos de Tenebris. Sua criação ocorreu a partir do Medo que Barnabé Aleno espalhou ao redor da ilha de Tipora e seus habitantes. Devido a sua conexão com os Sinos de Tenebris, ele possui dois elementos principais, o que não era visto em nenhuma manifestação paranormal até a sua aparição.               </p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/f/f5/Miniatura_Amigo_Imagin%C3%A1rio_em_O_Segredo_na_Ilha.png/revision/latest/scale-to-width-down/1000?cb=20220817180208&path-prefix=pt-br" style="width: 180px;">
+             </div>
+                <div class="bestiario"><h2 style="text-shadow: 2px 2px black;">Quibungo</h2>
+                 <p style="color: white; text-shadow: 2px 2px black;">O Quibungo é uma criatura de Sangue que nasceu da lenda de mesmo nome e foi distorcida pelo Outro Lado. Tomada pelo Sangue, se tornou uma criatura cruel que caça em ambientes selvagens.                 </p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/2/20/Arte_Quibungo_em_Hexatombe.png/revision/latest?cb=20251123023542&path-prefix=pt-br" style="width: 180px;">
+              </div>
+            </div>
+          </div>
+          <!-- SLIDE 4 -->
+          <div class="carousel-slide">
+            <div class="grimorio">
+              <div class="bestiario"><h2 style="text-shadow: 2px 2px black;">Kerberos</h2>
+                <p style="color: white; text-shadow: 2px 2px black;">O Kerberos é uma criatura de Sangue, que só pode ser manifestado em um "Inferno"
+                    , ou seja, uma área paranormal tomada pelo Sangue, tendo a Membrana local completamente destruída através de diversas brutalidades. 
+                    A criatura vem do mito grego de Cérbero, o Guardidão do Submundo.</p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/d/dd/Arte_do_Kerberos_em_Livro_de_Regras.png/revision/latest/scale-to-width-down/1000?cb=20241225054005&path-prefix=pt-br" style="width: 180px;">
+                     </div>
+              <div class="bestiario"><h2 style="text-shadow: 2px 2px black;">A Aniquilação</h2>
+                <p style="color: white; text-shadow: 2px 2px black;">A Aniquilação é uma criatura de Sangue com complemento de Medo, 
+                 e a maior já registrada na história da Realidade, sendo descrita como um "Apocalipse Paranormal".
+        
+                 Não existem informações que relatam a sua origem, apenas registros históricos das ruínas que restaram de sua chegada.
+                  Registros de pessoas que derrotaram essa criatura são inexistentes, como se ela nunca tivesse sido derrotada ou dissipada,
+                   estando apenas dormente em algum lugar da Realidade.</p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/3/31/Aniquila%C3%A7%C3%A3o_no_Livro_de_Regras.png/revision/latest/scale-to-width-down/1000?cb=20251018203052&path-prefix=pt-br" style="width: 180px;">
+             </div>
+              <div class="bestiario"><h2 style="text-shadow: 2px 2px black;">O Diabo</h2>
+                <p style="color: white; text-shadow: 2px 2px black;">O Diabo é o nome dado ao portador da Relíquia de Sangue.
+                     Essa entidade de Sangue é dita como uma das manifestações do Outro Lado  mais significativas da história da Realidade, 
+                     sendo alguém que nunca foi derrotado, controlado ou aprisionado, 
+                     também capaz de invocar e controlar quaisquer criaturas paranormais associadas ao Sangue na Realidade. As menções
+                      dessa figura maquiavélica estão presentes em várias lendas e culturas presentes na Realidade. Todos já ouviram 
+                      falar do Diabo, mas apenas alguns puderam ter a sensação do desprazer e da agonia de conhecê-lo.</p>
+                <img src="https://static.wikia.nocookie.net/ordemparanormal/images/2/25/Arte_do_Diabo_no_Livro_de_Regras.png/revision/latest/scale-to-width-down/1000?cb=20220928032946&path-prefix=pt-br" style="width: 220px;">
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+   <h1 style="text-shadow: 1px 1px black;">Quiz de Favoritismo</h1>
+   <h3 style="color: white; text-shadow: 2px 2px black;">Escolha o seu favorito! Não se esconde os sentimentos do sangue...</h3>
+   <div class="container">
+   <div class="formulario-lateral">
+     <h2>Escolha os Favoritos!</h2>
+
+     <form>
+         <label for="nome">Nome do Agente</label>
+         <input type="text" id="nome" name="nome" required>
+
+         <label for="email">Email</label>
+         <input type="email" id="email" name="email" required>
+
+         <label for="senha">Senha</label>
+         <input type="password" id="senha" name="senha" required>
+
+         <label for="ritual">Ritual</label>
+         <select id="ritual" name="ritual" required>
+             <option value="">Selecione um ritual</option>
+             <option value="descarnar">Descarnar</option>
+             <option value="derreter_criaturas_de_sangue">Derreter Criaturas de Sangue</option>
+             <option value="fortalecimento_sensorial">Fortalecimento Sensorial</option>
+             <option value="armadura_de_sangue">Armadura de Sangue</option>
+             <option value="distorcer aparência">Distorcer Aparência</option>
+             <option value="amaldiçoar_arma_com_sangue">Amaldiçoar Arma com Sangue</option>
+             <option value="ódio_incontrolável">Ódio Incontrolável</option>
+             <option value="espelho">Espelho</option>
+             <option value="infligir_doença">Infligir Doença</option>
+             <option value="teletransporte">Teletransporte</option>
+             <option value="reação">Reação</option>
+             <option value="paralisia_de_sangue">Paralisia de Sangue</option>
+         </select>
+
+         <label for="criatura">Criatura Favoria</label>
+         <select id="criatura" name="criatura" required>
+             <option value="">Selecione uma criatura</option>
+             <option value="zumbi_de_sangue">Zumbi de Sangue</option>
+             <option value="a_aniquilação">A Aniquilação</option>
+             <option value="o_diabo">O Diabo</option>
+             <option value="titã_de_sangue">Titã de Sangue</option>
+             <option value="dama_de_sangue">Dama de Sangue</option>
+             <option value="Kerberos">Kerberos</option>
+             <option value="enpap-x">Enpap-X</option>
+             <option value="minotauro">Minotauro</option>
+             <option value="carente">Carente</option>
+             <option value="o_derretido">O Derretido</option>
+             <option value="amigo_imaginário">Amigo Imaginário</option>
+             <option value="quibungo">Quibungo</option>
+         </select>
+
+         <label for="sentimento">Sentimento Predominante</label>
+         <select id="sentimento" name="sentimento" required>
+             <option value="">Selecione um sentimento</option>
+             <option value="ódio">Ódio</option>
+             <option value="raiva">Raiva</option>
+             <option value="ansiedade">Ansiedade</option>
+             <option value="tristeza">Tristeza</option>
+             <option value="excitação">Excitação</option>
+         </select>
+
+         <button type="submit">Enviar</button>
+     </form>
+    </div>
+</body>
+</html>
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Your Website 2023</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
